@@ -644,7 +644,7 @@
                 <li><a href="#home">Trang chủ</a></li>
                 <li><a href="#amenities">Tiện ích</a></li>
                 <li><a href="#rooms">Phòng nghỉ</a></li>
-                <li><a href="#booking">Đặt phòng</a></li>
+
                 <li><a href="#reviews">Đánh giá</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
             </ul>
@@ -681,7 +681,7 @@
                 <div class="amenity-card">
                     <div class="amenity-icon">🍽️</div>
                     <h3>Nhà Hàng</h3>
-                    <p>Phục vụ ẩm thực đặc sản địa phương</p>
+                    <p>Phục vụ ẩm thực đặc sản địa phương và món Á - Âu</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">❄️</div>
@@ -722,7 +722,8 @@
                         </ul>
                         <div class="room-price">
                             <span class="price">300.000đ/đêm</span>
-                            <button class="book-btn" onclick="scrollToBooking()">Đặt ngay</button>
+                            <a href="tel:0986959919" class="book-btn"
+                                style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
                         </div>
                     </div>
                 </div>
@@ -740,7 +741,8 @@
                         </ul>
                         <div class="room-price">
                             <span class="price">450.000đ/đêm</span>
-                            <button class="book-btn" onclick="scrollToBooking()">Đặt ngay</button>
+                            <a href="tel:0986959919" class="book-btn"
+                                style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
                         </div>
                     </div>
                 </div>
@@ -758,71 +760,12 @@
                         </ul>
                         <div class="room-price">
                             <span class="price">650.000đ/đêm</span>
-                            <button class="book-btn" onclick="scrollToBooking()">Đặt ngay</button>
+                            <a href="tel:0986959919" class="book-btn"
+                                style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section class="booking" id="booking">
-        <div class="container">
-            <h2 class="section-title">Đặt Phòng Ngay</h2>
-            <p class="section-subtitle">Điền thông tin để đặt phòng hoặc gọi trực tiếp: 0986 959 919</p>
-
-            <form class="booking-form fade-in" onsubmit="handleBooking(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Họ và tên *</label>
-                        <input type="text" id="name" name="name" required placeholder="Nguyễn Văn A">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Số điện thoại *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="0986 959 919">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">Địa chỉ</label>
-                    <input type="text" id="address" name="address" placeholder="Địa chỉ của bạn">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="checkin">Ngày nhận phòng *</label>
-                        <input type="date" id="checkin" name="checkin" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="checkout">Ngày trả phòng *</label>
-                        <input type="date" id="checkout" name="checkout" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="roomType">Loại phòng *</label>
-                        <select id="roomType" name="roomType" required>
-                            <option value="">Chọn loại phòng</option>
-                            <option value="standard">Phòng Tiêu Chuẩn - 300.000đ</option>
-                            <option value="deluxe">Phòng Deluxe - 450.000đ</option>
-                            <option value="family">Phòng Gia Đình - 650.000đ</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Số khách</label>
-                        <input type="number" id="guests" name="guests" min="1" max="6" value="2">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="notes">Ghi chú</label>
-                    <textarea id="notes" name="notes" rows="3" placeholder="Yêu cầu đặc biệt (nếu có)"></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Gửi Yêu Cầu Đặt Phòng</button>
-            </form>
         </div>
     </section>
 
@@ -895,7 +838,7 @@
 
                 <div class="map-container">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d105.4!3d18.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE4JzAwLjAiTiAxMDXCsDI0JzAwLjAiRQ!5e0!3m2!1svi!2s!4v1234567890"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d105.4578125!3d18.2820833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE2JzU1LjUiTiAxMDXCsDI3JzI4LjEiRQ!5e0!3m2!1svi!2s!4v1234567890&q=9GJ5%2BQ2+V%C5%A9+Quang%2C+H%C3%A0+T%C4%A9nh"
                         allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
