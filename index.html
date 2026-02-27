@@ -97,27 +97,30 @@
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">🌿</div>
-                <div class="bilingual-header">
-                    <span class="vi">Khách Sạn Xanh</span>
-                    <span class="en">Green Hotel</span>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html"><span class="vi">Trang chủ</span><span class="lang-en">Home</span></a></li>
-                <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu Quang</span></a>
-                </li>
-                <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
-                            class="lang-en">People</span></a></li>
-                <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
-                            class="lang-en">Cuisine</span></a></li>
-                <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
-                            class="lang-en">Landmarks</span></a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
-        </div>
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🏨</div>
+                    <div class="bilingual-header">
+                        <span class="vi">Khách Sạn Xanh</span>
+                        <span class="en">Green Hotel</span>
+                    </div>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active"><span class="vi">Trang chủ</span><span
+                                class="lang-en">Home</span></a></li>
+                    <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu
+                                Quang</span></a></li>
+                    <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
+                                class="lang-en">People</span></a></li>
+                    <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
+                                class="lang-en">Cuisine</span></a></li>
+                    <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
+                                class="lang-en">Landmarks</span></a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">☰</button>
+            </div>
+        </nav>
     </nav>
 
     <section class="hero">
@@ -340,42 +343,42 @@
                     retreat experience</p>
 
                 <div class="amenities-grid fade-in">
-                    <div class="amenity-card">
+                    <div class="amenity-card premium-card">
                         <div class="amenity-icon">📶</div>
                         <div class="bilingual-header">
                             <span class="vi">Wifi Miễn Phí</span>
                             <span class="en">Free High-Speed Wi-Fi</span>
                         </div>
                     </div>
-                    <div class="amenity-card">
+                    <div class="amenity-card premium-card">
                         <div class="amenity-icon">🅿️</div>
                         <div class="bilingual-header">
                             <span class="vi">Bãi Đậu Xe</span>
                             <span class="en">Secure Parking</span>
                         </div>
                     </div>
-                    <div class="amenity-card">
+                    <div class="amenity-card premium-card">
                         <div class="amenity-icon">🍳</div>
                         <div class="bilingual-header">
                             <span class="vi">Bếp Chung</span>
                             <span class="en">Shared Kitchen</span>
                         </div>
                     </div>
-                    <div class="amenity-card">
+                    <div class="amenity-card premium-card">
                         <div class="amenity-icon">❄️</div>
                         <div class="bilingual-header">
                             <span class="vi">Điều Hòa</span>
                             <span class="en">Air Conditioning</span>
                         </div>
                     </div>
-                    <div class="amenity-card">
+                    <div class="amenity-card premium-card">
                         <div class="amenity-icon">🧹</div>
                         <div class="bilingual-header">
                             <span class="vi">Vệ Sinh Hàng Ngày</span>
                             <span class="en">Daily Housekeeping</span>
                         </div>
                     </div>
-                    <div class="amenity-card">
+                    <div class="amenity-card premium-card">
                         <div class="amenity-icon">🔒</div>
                         <div class="bilingual-header">
                             <span class="vi">An Ninh 24/7</span>
@@ -397,12 +400,13 @@
 
                 <div class="rooms-grid fade-in">
                     <!-- Room 1 -->
-                    <div class="room-card">
+                    <div class="room-card premium-card">
                         <div class="room-image">
                             <img src="z7534371531325_6191162c5f15be2287809a4801213a10.jpg" alt="Phòng Double 1m4">
                         </div>
                         <div class="room-content">
-                            <h3>Double Room (1.4m Bed)</h3>
+                            <h3><span class="vi">Phòng Đôi (Giường 1m4)</span><span class="en">Double Room (1.4m
+                                    Bed)</span></h3>
                             <p class="vi">Phòng tiêu chuẩn, view thành phố</p>
                             <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Standard room with city
                                 view</p>
@@ -414,18 +418,20 @@
                             </ul>
                             <div class="room-price">
                                 <span class="price">250.000đ</span>
-                                <a href="tel:0986959919" class="book-btn">Đặt ngay / Book</a>
+                                <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
+                                        class="en">Book</span></a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Room 2 -->
-                    <div class="room-card">
+                    <div class="room-card premium-card">
                         <div class="room-image">
                             <img src="z7534371544773_d993cd2f0fe0be9750b84d19bc40ed68.jpg" alt="Phòng Double 1m6">
                         </div>
                         <div class="room-content">
-                            <h3>Superior Double (1.6m Bed)</h3>
+                            <h3><span class="vi">Superior Đôi (Giường 1m6)</span><span class="en">Superior Double (1.6m
+                                    Bed)</span></h3>
                             <p class="vi">Phòng rộng rãi, view sông và núi</p>
                             <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Spacious room with river
                                 & mountain views</p>
@@ -436,18 +442,20 @@
                             </ul>
                             <div class="room-price">
                                 <span class="price">300.000đ</span>
-                                <a href="tel:0986959919" class="book-btn">Đặt ngay / Book</a>
+                                <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
+                                        class="en">Book</span></a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Room 3 -->
-                    <div class="room-card">
+                    <div class="room-card premium-card">
                         <div class="room-image">
                             <img src="z7534373305491_7a90bebb87dace46466f784516d9f46f.jpg" alt="Phòng Twin">
                         </div>
                         <div class="room-content">
-                            <h3>Twin Room (2x 1.2m Beds)</h3>
+                            <h3><span class="vi">Phòng Twin (2 Giường 1m2)</span><span class="en">Twin Room (2x 1.2m
+                                    Beds)</span></h3>
                             <p class="vi">View sân cỏ, rừng, núi</p>
                             <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Nature view - Perfect for
                                 friends or family</p>
@@ -460,7 +468,8 @@
                             </ul>
                             <div class="room-price">
                                 <span class="price">350.000đ</span>
-                                <a href="tel:0986959919" class="book-btn">Đặt ngay / Book</a>
+                                <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
+                                        class="en">Book</span></a>
                             </div>
                         </div>
                     </div>
@@ -529,8 +538,43 @@
 
         <!-- Footer -->
         <footer>
-            <div class="container">
-                <p>&copy; 2024 Khách Sạn Xanh. All Rights Reserved.</p>
+            <div class="container footer-grid">
+                <div class="footer-col footer-contact">
+                    <h3><span class="vi">Khách Sạn Xanh</span><span class="en">Green Hotel</span></h3>
+                    <p>📍 <span class="vi">Khối 4, TT. Vũ Quang, Vũ Quang, Hà Tĩnh</span>
+                        <span class="en">Block 4, Vu Quang Town, Ha Tinh</span>
+                    </p>
+                    <p>📞 <a href="tel:0986959919">0986 959 919</a></p>
+                    <p>✉️ <span class="en">Email: contact@khachsanxanh.vn</span></p>
+                </div>
+                <div class="footer-col">
+                    <h3><span class="vi">Khám phá</span><span class="en">Explore</span></h3>
+                    <ul class="footer-links">
+                        <li><a href="vu-quang.html">Vũ Quang</a></li>
+                        <li><a href="con-nguoi-ha-tinh.html">Con người Hà Tĩnh</a></li>
+                        <li><a href="dac-san-ha-tinh.html">Đặc sản vùng miền</a></li>
+                        <li><a href="danh-lam-thang-canh.html">Danh lam thắng cảnh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3><span class="vi">Dịch vụ</span><span class="en">Services</span></h3>
+                    <ul class="footer-links">
+                        <li><a href="#rooms">Phòng nghỉ</a></li>
+                        <li><a href="#amenities">Tiện nghi</a></li>
+                        <li><a href="#gallery">Hình ảnh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3><span class="vi">Kết nối</span><span class="en">Connect</span></h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Zalo">ZL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Khách Sạn Xanh (Green Hotel). All Rights Reserved. | <span class="vi">Kết nối trái tim Hà
+                        Tĩnh</span><span class="en">Connecting Hearts across Ha Tinh</span></p>
             </div>
         </footer>
 
