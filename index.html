@@ -4,225 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khách Sạn Xanh - Vũ Quang, Hà Tĩnh</title>
+    <title>Khách Sạn Xanh (Green Hotel) - Vũ Quang, Hà Tĩnh</title>
+    <meta name="description"
+        content="Trải nghiệm không gian sang trọng tại Khách Sạn Xanh. Luxury stay at Green Hotel Ha Tinh.">
+    <link rel="alternate" hreflang="vi" href="https://khachsanxanh.vn/index.html">
+    <link rel="alternate" hreflang="en" href="https://khachsanxanh.vn/en/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://khachsanxanh.vn/index.html">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <style>
-        /* Dropdown Menu Styles */
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 1rem 0;
-            list-style: none;
-            display: none;
-            min-width: 200px;
-            z-index: 1001;
-        }
-
-        .dropdown-menu li {
-            padding: 0.5rem 1.5rem;
-        }
-
-        .dropdown-menu li a {
-            display: block;
-            width: 100%;
-        }
-
-        .nav-dropdown:hover .dropdown-menu {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Explore Cards */
-        .explore-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .explore-card {
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            height: 350px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .explore-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .explore-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .explore-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .explore-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-        }
-
-        .explore-overlay h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .explore-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --primary-green: #2d7a4f;
-            --secondary-green: #52b788;
-            --light-green: #95d5b2;
-            --dark-green: #1b4332;
-            --gold: #d4af37;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            border-radius: 8px;
+        /* Gallary & Hero Extra */
+        .hero {
+            margin-top: 80px;
+            height: 95vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('khachsan.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             color: white;
-            font-size: 1.2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
             position: relative;
+            overflow: hidden;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-green);
-        }
-
-        .nav-links a::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -5px;
+            top: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-green);
-            transition: width 0.3s;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1), transparent);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Gallery Section */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -237,13 +55,6 @@
             height: 250px;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
@@ -279,1194 +90,485 @@
             cursor: pointer;
             color: var(--primary-green);
         }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            height: 95vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('khachsan.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1), transparent);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            font-weight: 300;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--gold);
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-green);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* Amenities Section */
-        .amenities {
-            background: var(--bg-light);
-        }
-
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .amenity-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .amenity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .amenity-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .amenity-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-green);
-        }
-
-        /* Rooms Section */
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .room-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-        .room-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .room-image {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .room-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .room-card:hover .room-image img {
-            transform: scale(1.1);
-        }
-
-        .room-content {
-            padding: 2rem;
-        }
-
-        .room-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--dark-green);
-        }
-
-        .room-features {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .room-features li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .room-features li::before {
-            content: '✓';
-            color: var(--primary-green);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .room-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid var(--bg-light);
-        }
-
-        .price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-green);
-        }
-
-        .book-btn {
-            background: var(--primary-green);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .book-btn:hover {
-            background: var(--dark-green);
-            transform: scale(1.05);
-        }
-
-        .price-list {
-            margin-top: 1rem;
-            border-top: 1px solid #eee;
-            padding-top: 1rem;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .price-label {
-            color: var(--text-light);
-        }
-
-        .price-value {
-            font-weight: 700;
-            color: var(--primary-green);
-        }
-
-        .room-actions {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-
-        /* Booking Form */
-        .booking {
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            color: white;
-        }
-
-        .booking .section-title,
-        .booking .section-subtitle {
-            color: white;
-        }
-
-        .booking-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: white;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--gold);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #c49b2e;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Reviews Section */
-        .reviews {
-            background: var(--bg-light);
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        .stars {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-text {
-            font-style: italic;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .reviewer {
-            font-weight: 600;
-            color: var(--primary-green);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-green);
-        }
-
-        .contact-details p {
-            color: var(--text-light);
-        }
-
-        .contact-details a {
-            color: var(--primary-green);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .map-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 450px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-green);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Mobile Overlay */
-        .mobile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 999;
-        }
-
-        .mobile-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-green);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--dark-green);
-            transform: translateY(-3px);
-        }
-
-        /* Scroll Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-width: 44px;
-                min-height: 44px;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 320px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
-                transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                gap: 0;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                border-bottom: 1px solid #eee;
-            }
-
-            .nav-links a {
-                display: flex;
-                align-items: center;
-                padding: 1rem 0.5rem;
-                font-size: 1.1rem;
-                min-height: 48px;
-            }
-
-            .nav-dropdown .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                padding: 0;
-                display: block;
-                background: #f9f9f9;
-                border-radius: 0;
-            }
-
-            .nav-dropdown .dropdown-menu li {
-                padding: 0;
-            }
-
-            .nav-dropdown .dropdown-menu li a {
-                padding-left: 2rem;
-                font-size: 1rem;
-            }
-
-            .hero {
-                height: 55vh;
-                min-height: 350px;
-                margin-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .rooms-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .booking-form {
-                padding: 2rem 1.5rem;
-            }
-
-            .explore-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .explore-card {
-                height: 280px;
-            }
-
-            .cta-button {
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
-                min-height: 48px;
-                display: inline-flex;
-                align-items: center;
-            }
-
-            .book-btn {
-                min-height: 44px;
-                min-width: 44px;
-            }
-
-            .submit-btn {
-                min-height: 48px;
-            }
-
-            .back-to-top {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.7rem;
-            }
-
-            .nav-container {
-                padding: 0.8rem 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 3rem 1.2rem;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 
 <body>
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">🏨</div>
-                <span>Khách Sạn Xanh</span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="vu-quang.html">Khám phá Vũ Quang</a></li>
-                <li><a href="#amenities">Tiện ích</a></li>
-                <li><a href="#rooms">Phòng nghỉ</a></li>
-                <li class="nav-dropdown">
-                    <a href="javascript:void(0)">Khám phá Hà Tĩnh ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
-                        <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
-                        <li><a href="#explore">Danh lam</a></li>
-                    </ul>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🌿</div>
+                <div class="bilingual-header">
+                    <span class="vi">Khách Sạn Xanh</span>
+                    <span class="en">Green Hotel</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="vi">Trang chủ</span><span class="lang-en">Home</span></a></li>
+                <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu Quang</span></a>
                 </li>
-                <li><a href="#contact">Liên hệ</a></li>
+                <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
+                            class="lang-en">People</span></a></li>
+                <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
+                            class="lang-en">Cuisine</span></a></li>
+                <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
+                            class="lang-en">Landmarks</span></a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Khách Sạn Xanh</h1>
-            <p>Vị trí đẹp, view thoáng, dịch vụ tận tâm và giá cả phải chăng tại Vũ Quang, Hà Tĩnh</p>
-            <a href="tel:0986959919" class="cta-button">📞 Gọi đặt phòng: 0986 959 919</a>
+            <h1>Chào mừng tới Khách Sạn Xanh</h1>
+            <p>Trải nghiệm kỳ nghỉ xanh giữa lòng Vũ Quang Nature Reserve</p>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-top: -1.5rem;">Welcome to Green Hotel - Your eco-luxury
+                retreat</p>
+            <a href="#booking" class="cta-button">Đặt phòng ngay / Book Now</a>
         </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section class="amenities" id="amenities">
-        <div class="container">
-            <h2 class="section-title">Tiện Nghi Khách Sạn</h2>
-            <p class="section-subtitle">Chúng tôi mang đến cho bạn trải nghiệm nghỉ dưỡng tuyệt vời</p>
 
-            <div class="amenities-grid fade-in">
-                <div class="amenity-card">
-                    <div class="amenity-icon">📶</div>
-                    <h3>Wifi Miễn Phí</h3>
-                    <p>Kết nối internet tốc độ cao trong toàn bộ khách sạn</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">🅿️</div>
-                    <h3>Bãi Đậu Xe</h3>
-                    <p>Chỗ đậu xe rộng rãi, an toàn và miễn phí</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">🍳</div>
-                    <h3>Bếp Chung</h3>
-                    <p>Khu vực bếp nấu ăn chung tiện lợi cho mọi người</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">❄️</div>
-                    <h3>Điều Hòa</h3>
-                    <p>Phòng nghỉ được trang bị điều hòa nhiệt độ hiện đại</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">🧹</div>
-                    <h3>Vệ Sinh Hàng Ngày</h3>
-                    <p>Dọn phòng sạch sẽ, thay đổi khăn trải giường mỗi ngày</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">🔒</div>
-                    <h3>An Ninh 24/7</h3>
-                    <p>Hệ thống camera an ninh và bảo vệ túc trực</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    /* Responsive */
+    @media (max-width: 768px) {
+    .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    }
 
-    <!-- Rooms Section -->
-    <section class="rooms" id="rooms">
-        <div class="container">
-            <h2 class="section-title">Phòng Nghỉ</h2>
-            <p class="section-subtitle">Lựa chọn phòng phù hợp với nhu cầu của bạn</p>
+    .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    gap: 0;
+    z-index: 1000;
+    }
 
-            <div class="rooms-grid fade-in">
-                <!-- Room 1: Superior (1m4) -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="z7534371531325_6191162c5f15be2287809a4801213a10.jpg" alt="Phòng Double 1m4">
-                    </div>
-                    <div class="room-content">
-                        <h3>Phòng Double (Giường 1m4)</h3>
-                        <p>Phòng tiêu chuẩn, view thành phố</p>
-                        <ul class="room-features">
-                            <li>Diện tích: 20m²</li>
-                            <li>1 Giường 1m4</li>
-                            <li>Điều hòa, TV</li>
-                            <li>Phòng tắm riêng với nước nóng</li>
-                        </ul>
+    .nav-links.active {
+    left: 0;
+    }
 
-                        <div class="price-list">
-                            <div class="price-item">
-                                <span class="price-label">Lưu trú ngày đêm (14h-12h):</span>
-                                <span class="price-value">250.000đ</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Lưu trú đêm (21h-9h):</span>
-                                <span class="price-value">200.000đ</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Nghỉ giờ:</span>
-                                <span class="price-value">100.000đ</span>
-                            </div>
-                        </div>
+    .nav-links li {
+    border-bottom: 1px solid #eee;
+    }
 
-                        <div class="room-actions">
-                            <a href="tel:0986959919" class="book-btn"
-                                style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
-                        </div>
-                    </div>
-                </div>
+    .nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    font-size: 1.1rem;
+    min-height: 48px;
+    }
 
-                <!-- Room 2: Superior (1m6) -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="z7534371544773_d993cd2f0fe0be9750b84d19bc40ed68.jpg" alt="Phòng Double 1m6">
-                    </div>
-                    <div class="room-content">
-                        <h3>Phòng Standard Double (Giường 1m6)</h3>
-                        <p>Phòng rộng rãi, view sông và núi</p>
-                        <ul class="room-features">
-                            <li>Diện tích: 20m²</li>
-                            <li>1 Giường 1m6</li>
-                            <li>Tủ lạnh, Điều hòa, TV</li>
-                            <li>Bàn làm việc, sofa nghỉ ngơi</li>
-                        </ul>
+    .nav-dropdown .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    display: block;
+    background: #f9f9f9;
+    border-radius: 0;
+    }
 
-                        <div class="price-list">
-                            <div class="price-item">
-                                <span class="price-label">Lưu trú ngày đêm (14h-12h):</span>
-                                <span class="price-value">300.000đ</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Lưu trú đêm (21h-9h):</span>
-                                <span class="price-value">200.000đ</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Nghỉ giờ:</span>
-                                <span class="price-value">100.000đ</span>
-                            </div>
-                        </div>
+    .nav-dropdown .dropdown-menu li {
+    padding: 0;
+    }
 
-                        <div class="room-actions">
-                            <a href="tel:0986959919" class="book-btn"
-                                style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
-                        </div>
-                    </div>
-                </div>
+    .nav-dropdown .dropdown-menu li a {
+    padding-left: 2rem;
+    font-size: 1rem;
+    }
 
-                <!-- Room 3: Deluxe Twin (2x1m2) -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="z7534373305491_7a90bebb87dace46466f784516d9f46f.jpg" alt="Phòng Twin">
-                    </div>
-                    <div class="room-content">
-                        <h3>Phòng Twin (2 Giường 1m2)</h3>
-                        <p>View sân cỏ, rừng, núi</p>
-                        <ul class="room-features">
-                            <li>Diện tích: 24m²</li>
-                            <li>2 Giường 1m2</li>
-                            <li>Điều hòa, TV</li>
-                            <li>Không gian thoáng đãng</li>
-                        </ul>
+    .hero {
+    height: 55vh;
+    min-height: 350px;
+    margin-top: 60px;
+    }
 
-                        <div class="price-list">
-                            <div class="price-item">
-                                <span class="price-label">Lưu trú ngày đêm (14h-12h):</span>
-                                <span class="price-value">350.000đ</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Lưu trú đêm (21h-9h):</span>
-                                <span class="price-value">250.000đ</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Nghỉ giờ:</span>
-                                <span class="price-value">150.000đ</span>
-                            </div>
-                        </div>
+    .hero h1 {
+    font-size: 2rem;
+    }
 
-                        <div class="room-actions">
-                            <a href="tel:0986959919" class="book-btn"
-                                style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    .hero p {
+    font-size: 1rem;
+    }
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Không Gian Khách Sạn</h2>
-            <p class="section-subtitle">Một số hình ảnh thực tế tại Khách Sạn Xanh</p>
+    .section-title {
+    font-size: 1.8rem;
+    }
 
-            <div class="gallery-grid fade-in">
-                <div class="gallery-item">
-                    <img src="z7534371550325_0cbfe1fc7945485933877aadd4b03360.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534371554459_be5b285b51cfc8e78c42c59f97de4692.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534373297708_280ebe5e6696906b136508c2661972de.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534373305378_df61e714155bf547b0ff4b82202cf55c.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534373421714_131e48c6e434536e1e3f9bdbff09051b.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534374252032_30e4281ef960468a0ddae2909e1eb5e1.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534374256546_45b6947312700c26bc9224323cff8b35.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534374265099_898fe759e64f849dc2dc3fbd24d9112a.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534374266014_6cafd5d3bbd703341025d170face7a24.jpg" alt="Khách sạn Xanh">
-                </div>
-                <div class="gallery-item">
-                    <img src="z7534375967864_cc734309503ea4a102e23e4a2002a46c.jpg" alt="Khách sạn Xanh">
-                </div>
-            </div>
-        </div>
-    </section>
+    .rooms-grid {
+    grid-template-columns: 1fr;
+    }
 
-    <!-- Discover Ha Tinh Section -->
-    <section class="explore" id="explore">
-        <div class="container">
-            <h2 class="section-title">Khám Phá Hà Tĩnh</h2>
-            <p class="section-subtitle">Vùng đất của tâm hồn, văn hóa và thiên nhiên hùng vĩ</p>
+    .form-row {
+    grid-template-columns: 1fr;
+    }
 
-            <div class="explore-grid">
-                <a href="vu-quang.html" class="explore-card reveal">
-                    <img src="vu_quang_hero_1772184228570.png" alt="Vũ Quang" loading="lazy">
-                    <div class="explore-overlay">
-                        <h3>Vườn Quốc Gia Vũ Quang</h3>
-                        <p>Di sản ASEAN - Kho tàng đa dạng sinh học</p>
+    .contact-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .booking-form {
+    padding: 2rem 1.5rem;
+    }
+
+    .explore-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .explore-card {
+    height: 280px;
+    }
+
+    .cta-button {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    }
+
+    .book-btn {
+    min-height: 44px;
+    min-width: 44px;
+    }
+
+    .submit-btn {
+    min-height: 48px;
+    }
+
+    .back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 45px;
+    height: 45px;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .hero h1 {
+    font-size: 1.7rem;
+    }
+
+    .nav-container {
+    padding: 0.8rem 1rem;
+    }
+
+    .logo {
+    font-size: 1.2rem;
+    }
+
+    section {
+    padding: 3rem 1.2rem;
+    }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    </style>
+    </head>
+
+    <body>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🏨</div>
+                    <div class="bilingual-header">
+                        <span class="vi">Khách Sạn Xanh</span>
+                        <span class="en">Green Hotel</span>
                     </div>
                 </a>
-                <a href="con-nguoi-ha-tinh.html" class="explore-card reveal">
-                    <img src="ha_tinh_people_1772184245300.png" alt="Con người Hà Tĩnh" loading="lazy">
-                    <div class="explore-overlay">
-                        <h3>Con Người Hà Tĩnh</h3>
-                        <p>Đất học nghĩa tình, chân chất mộc mạc</p>
-                    </div>
-                </a>
-                <a href="dac-san-ha-tinh.html" class="explore-card reveal">
-                    <img src="ha_tinh_delicacies_1772184263124.png" alt="Đặc sản Hà Tĩnh" loading="lazy">
-                    <div class="explore-overlay">
-                        <h3>Đặc Sản Hà Tĩnh</h3>
-                        <p>Hương vị quê hương - Tinh hoa ẩm thực</p>
-                    </div>
-                </a>
-                <a href="danh-lam-thang-canh.html" class="explore-card reveal">
-                    <img src="ha_tinh_landmarks_1772184282838.png" alt="Danh lam thắng cảnh" loading="lazy">
-                    <div class="explore-overlay">
-                        <h3>Danh Lam Thắng Cảnh</h3>
-                        <p>Cảnh sắc hữu tình - Cung đàn Thiên Cầm</p>
-                    </div>
-                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><span class="vi">Trang chủ</span><span class="lang-en">Home</span></a></li>
+                    <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu
+                                Quang</span></a></li>
+                    <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
+                                class="lang-en">People</span></a></li>
+                    <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
+                                class="lang-en">Cuisine</span></a></li>
+                    <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
+                                class="lang-en">Landmarks</span></a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Reviews Section -->
-    <section class="reviews" id="reviews">
-        <div class="container">
-            <h2 class="section-title">Khách Hàng Nói Gì</h2>
-            <p class="section-subtitle">Đánh giá từ những vị khách đã ở tại Khách Sạn Xanh</p>
-
-            <div class="reviews-grid fade-in">
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Phòng sạch sẽ, nhân viên thân thiện, giá cả hợp lý. Vị trí thuận tiện để đi
-                        lại. Tôi sẽ quay lại lần sau!"</p>
-                    <p class="reviewer">- Anh Minh, Hà Nội</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Khách sạn rất tốt, view đẹp, yên tĩnh. Đồ ăn ngon, phục vụ nhiệt tình. Rất
-                        đáng để trải nghiệm!"</p>
-                    <p class="reviewer">- Chị Lan, TP.HCM</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Gia đình tôi đã có kỳ nghỉ tuyệt vời. Phòng rộng, sạch sẽ, có đầy đủ tiện
-                        nghi. Giá cả phải chăng!"</p>
-                    <p class="reviewer">- Anh Tuấn, Vinh</p>
-                </div>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Khách Sạn Xanh <br><span style="font-size: 0.5em; font-weight: 400; opacity: 0.8;">Green
+                        Hotel</span></h1>
+                <p>Vị trí đẹp, view thoáng, dịch vụ tận tâm tại Vũ Quang, Hà Tĩnh</p>
+                <p style="font-size: 1.1rem; opacity: 0.9; margin-top: -1rem; font-family: 'Inter', sans-serif;">Premium
+                    views, dedicated service & eco-friendly comfort</p>
+                <a href="tel:0986959919" class="cta-button">📞 Đặt phòng / Book Now: 0986 959 919</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
-            <p class="section-subtitle">Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
+        <!-- Amenities Section -->
+        <section class="amenities" id="amenities">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="vi">Tiện Nghi Khách Sạn</span>
+                    <span class="en">Hotel Amenities</span>
+                </h2>
+                <p class="section-subtitle">Chúng tôi mang đến cho bạn trải nghiệm nghỉ dưỡng tuyệt vời | Premium
+                    retreat experience</p>
 
-            <div class="contact-grid fade-in">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h3>Điện thoại</h3>
-                            <p><a href="tel:0986959919">0986 959 919</a></p>
-                            <p>Hotline 24/7</p>
+                <div class="amenities-grid fade-in">
+                    <div class="amenity-card">
+                        <div class="amenity-icon">📶</div>
+                        <div class="bilingual-header">
+                            <span class="vi">Wifi Miễn Phí</span>
+                            <span class="en">Free High-Speed Wi-Fi</span>
                         </div>
                     </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h3>Địa chỉ</h3>
-                            <p>Khối 4, TT. Vũ Quang</p>
-                            <p>Huyện Vũ Quang, Hà Tĩnh</p>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">🅿️</div>
+                        <div class="bilingual-header">
+                            <span class="vi">Bãi Đậu Xe</span>
+                            <span class="en">Secure Parking</span>
                         </div>
                     </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">🕐</div>
-                        <div class="contact-details">
-                            <h3>Giờ làm việc</h3>
-                            <p>Lễ tân: 24/7</p>
-                            <p>Nhà hàng: 6:00 - 22:00</p>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">🍳</div>
+                        <div class="bilingual-header">
+                            <span class="vi">Bếp Chung</span>
+                            <span class="en">Shared Kitchen</span>
+                        </div>
+                    </div>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">❄️</div>
+                        <div class="bilingual-header">
+                            <span class="vi">Điều Hòa</span>
+                            <span class="en">Air Conditioning</span>
+                        </div>
+                    </div>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">🧹</div>
+                        <div class="bilingual-header">
+                            <span class="vi">Vệ Sinh Hàng Ngày</span>
+                            <span class="en">Daily Housekeeping</span>
+                        </div>
+                    </div>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">🔒</div>
+                        <div class="bilingual-header">
+                            <span class="vi">An Ninh 24/7</span>
+                            <span class="en">24/7 Security</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d105.4578125!3d18.2820833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE2JzU1LjUiTiAxMDXCsDI3JzI4LjEiRQ!5e0!3m2!1svi!2s!4v1234567890&q=9GJ5%2BQ2+V%C5%A9+Quang%2C+H%C3%A0+T%C4%A9nh"
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+        <!-- Rooms Section -->
+        <section class="rooms" id="rooms">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="vi">Phòng Nghỉ</span>
+                    <span class="en">Our Rooms</span>
+                </h2>
+                <p class="section-subtitle">Lựa chọn phòng phù hợp với nhu cầu của bạn | Find your perfect stay</p>
+
+                <div class="rooms-grid fade-in">
+                    <!-- Room 1 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="z7534371531325_6191162c5f15be2287809a4801213a10.jpg" alt="Phòng Double 1m4">
+                        </div>
+                        <div class="room-content">
+                            <h3>Double Room (1.4m Bed)</h3>
+                            <p class="vi">Phòng tiêu chuẩn, view thành phố</p>
+                            <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Standard room with city
+                                view</p>
+                            <ul class="room-features">
+                                <li><span class="vi">1 Giường 1m4</span> | <span class="en">1.4m Queen Bed</span></li>
+                                <li><span class="vi">Điều hòa, TV</span> | <span class="en">AC & Smart TV</span></li>
+                                <li><span class="vi">Phòng tắm riêng</span> | <span class="en">Private Bathroom</span>
+                                </li>
+                            </ul>
+                            <div class="room-price">
+                                <span class="price">250.000đ</span>
+                                <a href="tel:0986959919" class="book-btn">Đặt ngay / Book</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Room 2 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="z7534371544773_d993cd2f0fe0be9750b84d19bc40ed68.jpg" alt="Phòng Double 1m6">
+                        </div>
+                        <div class="room-content">
+                            <h3>Superior Double (1.6m Bed)</h3>
+                            <p class="vi">Phòng rộng rãi, view sông và núi</p>
+                            <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Spacious room with river
+                                & mountain views</p>
+                            <ul class="room-features">
+                                <li><span class="vi">1 Giường 1m6</span> | <span class="en">1.6m King Bed</span></li>
+                                <li><span class="vi">Tủ lạnh, Điều hòa</span> | <span class="en">Fridge & AC</span></li>
+                                <li><span class="vi">Bàn làm việc</span> | <span class="en">Work Desk & Sofa</span></li>
+                            </ul>
+                            <div class="room-price">
+                                <span class="price">300.000đ</span>
+                                <a href="tel:0986959919" class="book-btn">Đặt ngay / Book</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Room 3 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="z7534373305491_7a90bebb87dace46466f784516d9f46f.jpg" alt="Phòng Twin">
+                        </div>
+                        <div class="room-content">
+                            <h3>Twin Room (2x 1.2m Beds)</h3>
+                            <p class="vi">View sân cỏ, rừng, núi</p>
+                            <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Nature view - Perfect for
+                                friends or family</p>
+                            <ul class="room-features">
+                                <li><span class="vi">2 Giường 1m2</span> | <span class="en">Twin 1.2m Beds</span></li>
+                                <li><span class="vi">Không gian thoáng</span> | <span class="en">Aerated Space</span>
+                                </li>
+                                <li><span class="vi">Đầy đủ tiện nghi</span> | <span class="en">Full Amenities</span>
+                                </li>
+                            </ul>
+                            <div class="room-price">
+                                <span class="price">350.000đ</span>
+                                <a href="tel:0986959919" class="book-btn">Đặt ngay / Book</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Khách Sạn Xanh - Vũ Quang, Hà Tĩnh. Tất cả quyền được bảo lưu.</p>
-        </div>
-    </footer>
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="vi">Không Gian Khách Sạn</span>
+                    <span class="en">Gallery</span>
+                </h2>
+                <div class="gallery-grid fade-in">
+                    <div class="gallery-item"><img src="z7534371550325_0cbfe1fc7945485933877aadd4b03360.jpg"
+                            alt="Hotel View"></div>
+                    <div class="gallery-item"><img src="z7534371554459_be5b285b51cfc8e78c42c59f97de4692.jpg"
+                            alt="Hotel View"></div>
+                    <div class="gallery-item"><img src="z7534373297708_280ebe5e6696906b136508c2661972de.jpg"
+                            alt="Hotel View"></div>
+                    <div class="gallery-item"><img src="z7534373305378_df61e714155bf547b0ff4b82202cf55c.jpg"
+                            alt="Hotel View"></div>
+                    <div class="gallery-item"><img src="z7534373421714_131e48c6e434536e1e3f9bdbff09051b.jpg"
+                            alt="Hotel View"></div>
+                    <div class="gallery-item"><img src="z7534374252032_30e4281ef960468a0ddae2909e1eb5e1.jpg"
+                            alt="Hotel View"></div>
+                </div>
+            </div>
+        </section>
 
-    <button class="back-to-top" id="backToTop" aria-label="Về đầu trang">↑</button>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="vi">Liên Hệ</span>
+                    <span class="en">Contact Us</span>
+                </h2>
+                <div class="contact-grid fade-in">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h3>Phone</h3>
+                                <p><a href="tel:0986959919">0986 959 919</a></p>
+                                <p>Hotline 24/7 (Support in VI/EN)</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h3>Address</h3>
+                                <p>Khoi 4, TT. Vu Quang</p>
+                                <p>Vu Quang District, Ha Tinh Province</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d105.4578125!3d18.2820833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE2JzU1LjUiTiAxMDXCsDI3JzI4LjEiRQ!5e0!3m2!1svi!2s!4v1234567890"
+                            allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        // Mobile menu toggle with overlay
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        const mobileOverlay = document.getElementById('mobileOverlay');
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Khách Sạn Xanh. All Rights Reserved.</p>
+            </div>
+        </footer>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileOverlay.classList.toggle('active');
-            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
+        <button class="back-to-top" id="backToTop">↑</button>
 
-        mobileOverlay.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            mobileMenuBtn.textContent = '☰';
-        });
+        <script>
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+                document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+            });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+            });
+
+            mobileOverlay.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileOverlay.classList.remove('active');
-                mobileMenuBtn.textContent = '☰';
             });
-        });
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+            // Scroll Reveal
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
 
-        // Scroll Reveal Animations (fade-in + reveal + reveal-left + reveal-right)
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.fade-in, .reveal, .reveal-left, .reveal-right').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Back to Top Button
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            backToTop.classList.toggle('show', window.scrollY > 400);
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Scroll to booking section
-        function scrollToBooking() {
-            document.getElementById('booking').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Handle booking form submission
-        function handleBooking(event) {
-            event.preventDefault();
-
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-
-            // Create WhatsApp message
-            const message = `
-🏨 ĐẶT PHÒNG KHÁCH SẠN XANH
-
-👤 Họ tên: ${data.name}
-📞 SĐT: ${data.phone}
-📍 Địa chỉ: ${data.address || 'Không có'}
-
-📅 Nhận phòng: ${data.checkin}
-📅 Trả phòng: ${data.checkout}
-🛏️ Loại phòng: ${data.roomType}
-👥 Số khách: ${data.guests}
-
-📝 Ghi chú: ${data.notes || 'Không có'}
-            `.trim();
-
-            // Open WhatsApp or call
-            const phone = '0986959919';
-            const whatsappUrl = `https://wa.me/84${phone.substring(1)}?text=${encodeURIComponent(message)}`;
-
-            // Try WhatsApp first, fallback to phone call
-            if (confirm('Bạn muốn gửi yêu cầu qua WhatsApp hay gọi điện trực tiếp?\n\nNhấn OK để mở WhatsApp\nNhấn Cancel để gọi điện')) {
-                window.open(whatsappUrl, '_blank');
-            } else {
-                window.location.href = `tel:${phone}`;
-            }
-        }
-
-        // Set minimum date for check-in to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('checkin').setAttribute('min', today);
-
-        // Update checkout minimum date when checkin changes
-        document.getElementById('checkin').addEventListener('change', function () {
-            const checkinDate = new Date(this.value);
-            checkinDate.setDate(checkinDate.getDate() + 1);
-            const minCheckout = checkinDate.toISOString().split('T')[0];
-            document.getElementById('checkout').setAttribute('min', minCheckout);
-        });
-    </script>
-
-</body>
+            document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
+            document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        </script>
+    </body>
 
 </html>

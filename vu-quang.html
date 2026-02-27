@@ -4,132 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vườn Quốc Gia Vũ Quang - Kho Báu Thiên Nhiên Hà Tĩnh</title>
+    <title>Vũ Quang (Vu Quang National Park) - Khách Sạn Xanh</title>
     <meta name="description"
-        content="Khám phá Vườn Quốc Gia Vũ Quang - Di sản ASEAN, trung tâm đa dạng sinh học bậc nhất Việt Nam tại Hà Tĩnh.">
+        content="Khám phá Vườn Quốc Gia Vũ Quang - Di sản ASEAN tại Hà Tĩnh. Discover Vu Quang National Park.">
+    <link rel="alternate" hreflang="vi" href="https://khachsanxanh.vn/vu-quang.html">
+    <link rel="alternate" hreflang="en" href="https://khachsanxanh.vn/en/vu-quang.html">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --primary-green: #2d7a4f;
-            --secondary-green: #52b788;
-            --light-green: #95d5b2;
-            --dark-green: #1b4332;
-            --gold: #d4af37;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-            background: #fff;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary-green);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-green);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-green);
-            padding: 0.5rem;
-            min-width: 44px;
-            min-height: 44px;
-            z-index: 1001;
-        }
-
-        /* Hero Section with Parallax */
+        /* Page-specific overrides */
         .hero {
             height: 70vh;
             min-height: 400px;
@@ -143,78 +28,25 @@
             text-align: center;
             color: white;
             margin-top: 70px;
-            position: relative;
         }
 
-        .hero-content {
-            max-width: 900px;
-            padding: 2rem;
-            animation: heroFadeIn 1.2s ease;
-        }
-
-        @keyframes heroFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Content Section */
-        .content-section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .intro-text {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-bottom: 4rem;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        /* Grid Layout */
         .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            margin: 6rem 0;
+            display: flex;
             align-items: center;
-            margin-bottom: 5rem;
+            gap: 4rem;
         }
 
         .grid:nth-child(even) {
-            direction: rtl;
-        }
-
-        .grid:nth-child(even) .text-box {
-            direction: ltr;
+            flex-direction: row-reverse;
         }
 
         .image-box {
-            border-radius: 20px;
+            flex: 1;
+            border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/10;
         }
 
         .image-box img {
@@ -224,286 +56,18 @@
             transition: transform 0.6s ease;
         }
 
-        .image-box:hover img {
-            transform: scale(1.08);
+        .text-box {
+            flex: 1;
         }
 
-        .text-box h2 {
-            font-size: 2.5rem;
-            color: var(--dark-green);
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .text-box h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 2px;
-            transition: width 0.5s ease;
-        }
-
-        .text-box:hover h2::after {
-            width: 100px;
-        }
-
-        .text-box p {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        /* Highlight Card */
-        .highlight-card {
-            background: var(--bg-light);
-            padding: 3rem;
-            border-radius: 30px;
-            border-left: 8px solid var(--primary-green);
-            margin: 4rem 0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .highlight-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-        }
-
-        /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-green);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .back-home {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2.5rem;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .back-home:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-green);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--dark-green);
-            transform: translateY(-3px);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 320px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
-                transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                gap: 0;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                border-bottom: 1px solid #eee;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1rem 0.5rem;
-                font-size: 1.1rem;
-                min-height: 48px;
-                display: flex;
-                align-items: center;
-            }
-
-            .mobile-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-                z-index: 999;
-            }
-
-            .mobile-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .hero {
-                height: 55vh;
-                min-height: 350px;
-                background-attachment: scroll;
-                margin-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .content-section {
-                padding: 3rem 1.2rem;
-            }
-
-            .intro-text {
-                font-size: 1.05rem;
-                margin-bottom: 2.5rem;
-            }
-
+        @media (max-width: 992px) {
             .grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 2rem;
-                margin-bottom: 3rem;
             }
 
             .grid:nth-child(even) {
-                direction: ltr;
-            }
-
-            .text-box h2 {
-                font-size: 1.8rem;
-            }
-
-            .text-box p {
-                font-size: 1rem;
-            }
-
-            .highlight-card {
-                padding: 2rem 1.5rem;
-                border-radius: 20px;
-            }
-
-            .highlight-card h3 {
-                font-size: 1.4rem;
-            }
-
-            .back-to-top {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.7rem;
-            }
-
-            .nav-container {
-                padding: 0.8rem 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
+                flex-direction: column;
             }
         }
     </style>
@@ -512,143 +76,131 @@
 <body>
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">🏨 Khách Sạn Xanh</a>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🏨</div>
+                <div class="bilingual-header">
+                    <span class="vi">Khách Sạn Xanh</span>
+                    <span class="en">Green Hotel</span>
+                </div>
+            </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="vu-quang.html" class="active">Vũ Quang</a></li>
-                <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
-                <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
-                <li><a href="danh-lam-thang-canh.html">Danh lam</a></li>
+                <li><a href="index.html"><span class="vi">Trang chủ</span><span class="lang-en">Home</span></a></li>
+                <li><a href="vu-quang.html" class="active"><span class="vi">Vũ Quang</span><span class="lang-en">Vu
+                            Quang</span></a></li>
+                <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
+                            class="lang-en">People</span></a></li>
+                <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
+                            class="lang-en">Cuisine</span></a></li>
+                <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
+                            class="lang-en">Landmarks</span></a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Vườn Quốc Gia Vũ Quang</h1>
+            <p style="font-size: 1.5rem; font-weight: 300; opacity: 0.9;">Vu Quang National Park - ASEAN Heritage</p>
             <p>Hành trình khám phá "Vườn di sản ASEAN" giữa lòng đại ngàn Trường Sơn</p>
         </div>
     </section>
 
-    <main class="content-section">
-        <p class="intro-text reveal">
-            "Vũ Quang không chỉ là một khu bảo tồn thiên nhiên, mà còn là linh hồn của vùng đất Hà Tĩnh.
-            Nơi đây, từng nhành cây, ngọn cỏ đều mang hơi thở của đại ngàn hoang sơ, hùng vĩ."
-        </p>
+    <main class="container content-section">
+        <div class="intro-text fade-in">
+            <p class="vi">"Vũ Quang không chỉ là một khu bảo tồn thiên nhiên, mà còn là linh hồn của vùng đất Hà Tĩnh.
+                Nơi đây, từng nhành cây, ngọn cỏ đều mang hơi thở của đại ngàn hoang sơ, hùng vĩ."</p>
+            <p class="en" style="font-family: 'Inter', sans-serif; font-size: 0.9em; margin-top: 1rem;">"Vu Quang is
+                more than a nature reserve; it is the soul of Ha Tinh. Every leaf and blade of grass carries the breath
+                of the pristine, majestic primeval forest."</p>
+        </div>
 
-        <div class="grid">
-            <div class="image-box reveal-left">
+        <div class="grid fade-in">
+            <div class="image-box">
                 <img src="vu_quang_ecosystem.png" alt="Rừng nguyên sinh Vũ Quang" loading="lazy">
             </div>
-            <div class="text-box reveal-right">
-                <h2>Hệ Sinh Thái Đa Dạng</h2>
-                <p>
-                    Được vinh danh là Vườn di sản ASEAN, Vũ Quang tự hào sở hữu hệ sinh thái động thực vật phong phú bậc
-                    nhất Việt Nam.
-                    Nơi đây là "ngôi nhà" của hàng ngàn loài thực vật bậc cao và nhiều loài động vật quý hiếm nằm trong
-                    Sách Đỏ thế giới.
-                </p>
-                <p>
-                    Đặc biệt, Vũ Quang từng làm chấn động giới khoa học quốc tế khi là nơi đầu tiên phát hiện ra Sao La
-                    – "Kỳ lân châu Á"
-                    và loài Mang lớn. Đây là những báu vật thiên nhiên khẳng định giá trị bảo tồn vô giá của vùng đất
-                    này.
-                </p>
+            <div class="text-box">
+                <h2 class="vi">Hệ Sinh Thái Đa Dạng</h2>
+                <h2 class="en" style="font-size: 1.5rem; color: var(--text-light); margin-top: -1rem;">Diverse Ecosystem
+                </h2>
+                <p class="vi">Được vinh danh là Vườn di sản ASEAN, Vũ Quang tự hào sở hữu hệ sinh thái động thực vật
+                    phong phú bậc nhất Việt Nam.</p>
+                <p class="en" style="font-size: 1rem; color: var(--text-light);">Recognized as an ASEAN Heritage Park,
+                    Vu Quang boasts one of Vietnam's most diverse ecosystems, home to rare species found nowhere else on
+                    Earth.</p>
             </div>
         </div>
 
-        <div class="grid">
-            <div class="image-box reveal-left">
+        <div class="grid fade-in">
+            <div class="image-box">
                 <img src="ngan_truoi_lake.png" alt="Hồ Ngàn Trươi" loading="lazy">
             </div>
-            <div class="text-box reveal-right">
-                <h2>Cảnh Quan Sơn Thủy Hữu Tình</h2>
-                <p>
-                    Đến với Vũ Quang, du khách sẽ ngỡ ngàng trước vẻ đẹp của lòng hồ Ngàn Trươi mênh mông như biển hồ
-                    giữa núi rừng.
-                    Mặt nước xanh ngắt in bóng mây trời, xung quanh là những hòn đảo nhỏ nhấp nhô tạo nên một bức tranh
-                    thủy mặc say đắm lòng người.
-                </p>
-                <p>
-                    Những thác nước hùng vĩ như thác Thang Đày, thác Cổng Trời ngày đêm vang vọng khúc ca của đại ngàn,
-                    mang đến cảm giác thanh tịnh và sảng khoái tuyệt đối cho bước chân lữ khách.
-                </p>
+            <div class="text-box">
+                <h2 class="vi">Cảnh Quan Sơn Thủy Hữu Tình</h2>
+                <h2 class="en" style="font-size: 1.5rem; color: var(--text-light); margin-top: -1rem;">Breathtaking
+                    Landscapes</h2>
+                <p class="vi">Lòng hồ Ngàn Trươi mênh mông như biển hồ giữa núi rừng, mặt nước xanh ngắt in bóng mây
+                    trời tạo nên bức tranh thủy mặc say đắm lòng người.</p>
+                <p class="en" style="font-size: 1rem; color: var(--text-light);">The vast Ngan Truoi Lake sparkles like
+                    a mountain sea, offering serene views that capture the essence of nature's beauty.</p>
             </div>
         </div>
 
-        <div class="highlight-card reveal">
-            <h3>Dấu Ấn Lịch Sử Hào Hùng</h3>
-            <p>
-                Không chỉ có thiên nhiên, Vũ Quang còn là vùng đất địa linh nhân kiệt. Nơi đây từng là căn cứ địa vững
-                chắc của
-                cuộc khởi nghĩa Cần Vương do chí sĩ Phan Đình Phùng lãnh đạo. Những vách đá, hang động vẫn còn vương
-                bóng hình
-                của những nghĩa quân kiên cường, viết nên những trang sử vẻ vang cho dân tộc Việt Nam.
-            </p>
+        <div class="highlight-section fade-in" style="margin-top: 4rem;">
+            <h3 class="vi">Dấu Ấn Lịch Sử Hào Hùng</h3>
+            <h3 class="en" style="font-size: 1.4rem; color: var(--primary-green);">Heroic History</h3>
+            <p class="vi">Vũ Quang từng là căn cứ địa vững chắc của cuộc khởi nghĩa Cần Vương. Những vách đá, hang động
+                vẫn còn vương bóng hình của những nghĩa quân kiên cường.</p>
+            <p class="en" style="font-size: 1rem; color: var(--text-light); margin-top: 1rem;">Serving as a strategic
+                base during the Can Vuong movement, the caves and cliffs of Vu Quang still echo the resilient spirit of
+                Vietnam's national heroes.</p>
         </div>
 
-        <div style="text-align: center;" class="reveal">
-            <a href="index.html" class="back-home">⬅ Quay về Trang chủ</a>
+        <div style="text-align: center; margin: 4rem 0;" class="fade-in">
+            <a href="index.html" class="cta-button">⬅ <span class="vi">Quay về Trang chủ</span><span class="en">Back to
+                    Home</span></a>
         </div>
     </main>
 
     <footer>
-        <p>© 2024 Khách Sạn Xanh Vũ Quang. Mang thiên nhiên đến gần bạn hơn.</p>
+        <div class="container">
+            <p>&copy; 2024 Khách Sạn Xanh - Vũ Quang National Park Gateway.</p>
+        </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop" aria-label="Về đầu trang">↑</button>
+    <button class="back-to-top" id="backToTop">↑</button>
 
     <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobileMenuBtn');
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+        });
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-        const overlay = document.getElementById('mobileOverlay');
+        const mobileOverlay = document.getElementById('mobileOverlay');
 
-        menuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            overlay.classList.toggle('active');
-            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            mobileOverlay.classList.toggle('active');
         });
 
-        overlay.addEventListener('click', () => {
+        mobileOverlay.addEventListener('click', () => {
             navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            menuBtn.textContent = '☰';
+            mobileOverlay.classList.remove('active');
         });
 
-        // Close menu on link click (mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                overlay.classList.remove('active');
-                menuBtn.textContent = '☰';
-            });
-        });
-
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.1 });
 
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // Back to Top Button
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            backToTop.classList.toggle('show', window.scrollY > 400);
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
 </body>
 
