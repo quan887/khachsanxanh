@@ -120,6 +120,55 @@
             width: 100%;
         }
 
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '+';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 122, 79, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -132,8 +181,8 @@
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            height: 90vh;
-            background: linear-gradient(135deg, rgba(45, 122, 79, 0.7), rgba(82, 183, 136, 0.6)), url('khachsan.jpg');
+            height: 95vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('khachsan.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -176,15 +225,18 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
             opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
         }
 
         .cta-button {
@@ -294,26 +346,20 @@
 
         .room-image {
             width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--light-green), var(--secondary-green));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
+            height: 280px;
             overflow: hidden;
+            position: relative;
         }
 
-        .room-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%2395d5b2" width="400" height="300"/><rect fill="%23fff" opacity="0.1" x="50" y="100" width="120" height="80" rx="5"/><rect fill="%23fff" opacity="0.15" x="200" y="120" width="100" height="60" rx="3"/></svg>');
-            background-size: cover;
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.1);
         }
 
         .room-content {
@@ -671,7 +717,7 @@
                 <li><a href="#home">Trang chủ</a></li>
                 <li><a href="#amenities">Tiện ích</a></li>
                 <li><a href="#rooms">Phòng nghỉ</a></li>
-
+                <li><a href="#gallery">Hình ảnh</a></li>
                 <li><a href="#reviews">Đánh giá</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
             </ul>
@@ -738,7 +784,9 @@
             <div class="rooms-grid fade-in">
                 <!-- Room 1: Superior (1m4) -->
                 <div class="room-card">
-                    <div class="room-image">🛏️</div>
+                    <div class="room-image">
+                        <img src="z7534371531325_6191162c5f15be2287809a4801213a10.jpg" alt="Phòng Double 1m4">
+                    </div>
                     <div class="room-content">
                         <h3>Phòng Double (Giường 1m4)</h3>
                         <p>Phòng tiêu chuẩn, view thành phố</p>
@@ -773,7 +821,9 @@
 
                 <!-- Room 2: Superior (1m6) -->
                 <div class="room-card">
-                    <div class="room-image">🛋️</div>
+                    <div class="room-image">
+                        <img src="z7534371544773_d993cd2f0fe0be9750b84d19bc40ed68.jpg" alt="Phòng Double 1m6">
+                    </div>
                     <div class="room-content">
                         <h3>Phòng Standard Double (Giường 1m6)</h3>
                         <p>Phòng rộng rãi, view sông và núi</p>
@@ -808,7 +858,9 @@
 
                 <!-- Room 3: Deluxe Twin (2x1m2) -->
                 <div class="room-card">
-                    <div class="room-image">👨‍👩‍👧‍👦</div>
+                    <div class="room-image">
+                        <img src="z7534373305491_7a90bebb87dace46466f784516d9f46f.jpg" alt="Phòng Twin">
+                    </div>
                     <div class="room-content">
                         <h3>Phòng Twin (2 Giường 1m2)</h3>
                         <p>View sân cỏ, rừng, núi</p>
@@ -839,6 +891,47 @@
                                 style="text-decoration: none; display: inline-block;">Gọi đặt phòng</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Không Gian Khách Sạn</h2>
+            <p class="section-subtitle">Một số hình ảnh thực tế tại Khách Sạn Xanh</p>
+
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item">
+                    <img src="z7534371550325_0cbfe1fc7945485933877aadd4b03360.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534371554459_be5b285b51cfc8e78c42c59f97de4692.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534373297708_280ebe5e6696906b136508c2661972de.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534373305378_df61e714155bf547b0ff4b82202cf55c.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534373421714_131e48c6e434536e1e3f9bdbff09051b.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534374252032_30e4281ef960468a0ddae2909e1eb5e1.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534374256546_45b6947312700c26bc9224323cff8b35.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534374265099_898fe759e64f849dc2dc3fbd24d9112a.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534374266014_6cafd5d3bbd703341025d170face7a24.jpg" alt="Khách sạn Xanh">
+                </div>
+                <div class="gallery-item">
+                    <img src="z7534375967864_cc734309503ea4a102e23e4a2002a46c.jpg" alt="Khách sạn Xanh">
                 </div>
             </div>
         </div>
@@ -1044,6 +1137,3 @@
 </body>
 
 </html>
-
-
-
