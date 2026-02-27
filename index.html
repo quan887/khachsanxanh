@@ -113,6 +113,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --primary-green: #2d7a4f;
             --secondary-green: #52b788;
@@ -737,38 +741,168 @@
             opacity: 0.8;
         }
 
+        /* Mobile Overlay */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 44px;
+                min-height: 44px;
             }
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: -100%;
-                width: 100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
                 background: white;
                 flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-                transition: left 0.3s;
+                padding: 5rem 2rem 2rem;
+                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
+                transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                gap: 0;
+                z-index: 1000;
             }
 
             .nav-links.active {
                 left: 0;
             }
 
+            .nav-links li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                padding: 1rem 0.5rem;
+                font-size: 1.1rem;
+                min-height: 48px;
+            }
+
+            .nav-dropdown .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                padding: 0;
+                display: block;
+                background: #f9f9f9;
+                border-radius: 0;
+            }
+
+            .nav-dropdown .dropdown-menu li {
+                padding: 0;
+            }
+
+            .nav-dropdown .dropdown-menu li a {
+                padding-left: 2rem;
+                font-size: 1rem;
+            }
+
+            .hero {
+                height: 55vh;
+                min-height: 350px;
+                margin-top: 60px;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .rooms-grid {
@@ -785,6 +919,56 @@
 
             .booking-form {
                 padding: 2rem 1.5rem;
+            }
+
+            .explore-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .explore-card {
+                height: 280px;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .book-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .submit-btn {
+                min-height: 48px;
+            }
+
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 3rem 1.2rem;
             }
         }
 
@@ -803,6 +987,7 @@
 </head>
 
 <body>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -1049,29 +1234,29 @@
             <p class="section-subtitle">Vùng đất của tâm hồn, văn hóa và thiên nhiên hùng vĩ</p>
 
             <div class="explore-grid">
-                <a href="vu-quang.html" class="explore-card">
-                    <img src="vu_quang_hero_1772184228570.png" alt="Vũ Quang">
+                <a href="vu-quang.html" class="explore-card reveal">
+                    <img src="vu_quang_hero_1772184228570.png" alt="Vũ Quang" loading="lazy">
                     <div class="explore-overlay">
                         <h3>Vườn Quốc Gia Vũ Quang</h3>
                         <p>Di sản ASEAN - Kho tàng đa dạng sinh học</p>
                     </div>
                 </a>
-                <a href="con-nguoi-ha-tinh.html" class="explore-card">
-                    <img src="ha_tinh_people_1772184245300.png" alt="Con người Hà Tĩnh">
+                <a href="con-nguoi-ha-tinh.html" class="explore-card reveal">
+                    <img src="ha_tinh_people_1772184245300.png" alt="Con người Hà Tĩnh" loading="lazy">
                     <div class="explore-overlay">
                         <h3>Con Người Hà Tĩnh</h3>
                         <p>Đất học nghĩa tình, chân chất mộc mạc</p>
                     </div>
                 </a>
-                <a href="dac-san-ha-tinh.html" class="explore-card">
-                    <img src="ha_tinh_delicacies_1772184263124.png" alt="Đặc sản Hà Tĩnh">
+                <a href="dac-san-ha-tinh.html" class="explore-card reveal">
+                    <img src="ha_tinh_delicacies_1772184263124.png" alt="Đặc sản Hà Tĩnh" loading="lazy">
                     <div class="explore-overlay">
                         <h3>Đặc Sản Hà Tĩnh</h3>
                         <p>Hương vị quê hương - Tinh hoa ẩm thực</p>
                     </div>
                 </a>
-                <a href="danh-lam-thang-canh.html" class="explore-card">
-                    <img src="ha_tinh_landmarks_1772184282838.png" alt="Danh lam thắng cảnh">
+                <a href="danh-lam-thang-canh.html" class="explore-card reveal">
+                    <img src="ha_tinh_landmarks_1772184282838.png" alt="Danh lam thắng cảnh" loading="lazy">
                     <div class="explore-overlay">
                         <h3>Danh Lam Thắng Cảnh</h3>
                         <p>Cảnh sắc hữu tình - Cung đàn Thiên Cầm</p>
@@ -1165,19 +1350,32 @@
         </div>
     </footer>
 
+    <button class="back-to-top" id="backToTop" aria-label="Về đầu trang">↑</button>
+
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle with overlay
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
+        const mobileOverlay = document.getElementById('mobileOverlay');
 
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        mobileOverlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            mobileMenuBtn.textContent = '☰';
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
             });
         });
 
@@ -1191,36 +1389,27 @@
             }
         });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        // Scroll Reveal Animations (fade-in + reveal + reveal-left + reveal-right)
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.fade-in, .reveal, .reveal-left, .reveal-right').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('show', window.scrollY > 400);
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Scroll to booking section

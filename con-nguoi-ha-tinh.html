@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Con Người Hà Tĩnh - Đất Học & Nghĩa Tình</title>
+    <meta name="description"
+        content="Khám phá con người Hà Tĩnh - vùng đất hiếu học, nghĩa tình và giàu bản sắc văn hóa.">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -13,6 +15,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -31,6 +37,8 @@
             line-height: 1.6;
             color: var(--text-dark);
             background: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
@@ -39,12 +47,14 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
@@ -78,13 +88,52 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
         }
 
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-green);
+            min-width: 44px;
+            min-height: 44px;
+            z-index: 1001;
+        }
+
+        /* Hero */
         .hero {
             height: 70vh;
+            min-height: 400px;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('ha_tinh_people_1772184245300.png');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,11 +142,36 @@
             margin-top: 70px;
         }
 
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            animation: heroIn 1.2s ease;
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .hero h1 {
             font-size: 3.5rem;
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0.5rem;
         }
 
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Content */
         .content-section {
             padding: 5rem 2rem;
             max-width: 1100px;
@@ -139,6 +213,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.08);
         }
 
         .text-box h2 {
@@ -160,6 +239,12 @@
             text-align: center;
             margin: 4rem 0;
             border-top: 5px solid var(--gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .quote-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .quote-box p {
@@ -167,6 +252,45 @@
             font-size: 1.5rem;
             color: var(--primary-green);
             margin-bottom: 1rem;
+        }
+
+        .quote-box span {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         footer {
@@ -177,7 +301,8 @@
         }
 
         .back-home {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin-top: 2rem;
             padding: 1rem 2.5rem;
             background: var(--gold);
@@ -185,27 +310,186 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
+            transition: all 0.3s;
+            min-height: 48px;
         }
 
+        .back-home:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                gap: 0;
+                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
+                transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                padding: 1rem 0.5rem;
+                font-size: 1.1rem;
+                min-height: 48px;
+            }
+
+            .mobile-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 999;
+            }
+
+            .mobile-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero {
+                height: 55vh;
+                min-height: 350px;
+                background-attachment: scroll;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .content-section {
+                padding: 3rem 1.2rem;
+            }
+
+            .intro-text {
+                font-size: 1.05rem;
+                margin-bottom: 2.5rem;
+            }
+
             .grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .grid:nth-child(even) {
+                direction: ltr;
+            }
+
+            .text-box h2 {
+                font-size: 1.8rem;
+            }
+
+            .text-box p {
+                font-size: 1rem;
+            }
+
+            .quote-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .quote-box p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">🏨 Khách Sạn Xanh</a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="vu-quang.html">Vũ Quang</a></li>
-                <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
+                <li><a href="con-nguoi-ha-tinh.html" class="active">Con người</a></li>
                 <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
                 <li><a href="danh-lam-thang-canh.html">Danh lam</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
         </div>
     </nav>
 
@@ -217,17 +501,17 @@
     </section>
 
     <main class="content-section">
-        <p class="intro-text">
+        <p class="intro-text reveal">
             "Hà Tĩnh mình thương, từ thuở nôi ru... Con người nơi đây tôi luyện qua nắng gió,
             trở nên rắn rỏi nhưng cũng đầy ắp nghĩa tình."
         </p>
 
         <div class="grid">
-            <div class="image-box">
+            <div class="image-box reveal-left">
                 <img src="https://images.unsplash.com/photo-1528605248644-14dd04bd2a3f?auto=format&fit=crop&w=800&q=80"
-                    alt="Con người">
+                    alt="Con người Hà Tĩnh" loading="lazy">
             </div>
-            <div class="text-box">
+            <div class="text-box reveal-right">
                 <h2>Truyền Thống Hiếu Học</h2>
                 <p>
                     Hà Tĩnh vốn nổi danh là "Đất học". Dù cuộc sống còn nhiều gian khó, nhưng tinh thần vượt khó, ham
@@ -242,11 +526,11 @@
         </div>
 
         <div class="grid">
-            <div class="image-box">
+            <div class="image-box reveal-left">
                 <img src="https://images.unsplash.com/photo-1544435253-f0ed4aaeff21?auto=format&fit=crop&w=800&q=80"
-                    alt="Văn hóa">
+                    alt="Văn hóa Hà Tĩnh" loading="lazy">
             </div>
-            <div class="text-box">
+            <div class="text-box reveal-right">
                 <h2>Cốt Cách Nghĩa Tình</h2>
                 <p>
                     Nếu thiên nhiên khắc nghiệt trui rèn ý chí, thì chính tâm hồn nhạy cảm đã tạo nên những làn điệu Dân
@@ -262,19 +546,60 @@
             </div>
         </div>
 
-        <div class="quote-box">
+        <div class="quote-box reveal">
             <p>"Muối mặn gừng cay, tình người xứ Nghệ"</p>
             <span>Dân ca Ví, Giặm - Di sản văn hóa phi vật thể của nhân loại</span>
         </div>
 
-        <div style="text-align: center;">
-            <a href="index.html" class="back-home">Quay về Trang chủ</a>
+        <div style="text-align: center;" class="reveal">
+            <a href="index.html" class="back-home">⬅ Quay về Trang chủ</a>
         </div>
     </main>
 
     <footer>
         <p>© 2024 Khách Sạn Xanh Vũ Quang - Nơi kết nối những tấm lòng.</p>
     </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Về đầu trang">↑</button>
+
+    <script>
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('mobileOverlay');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        overlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            menuBtn.textContent = '☰';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                menuBtn.textContent = '☰';
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 400));
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
 </body>
 
 </html>
