@@ -9,6 +9,104 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
+        /* Dropdown Menu Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1rem 0;
+            list-style: none;
+            display: none;
+            min-width: 200px;
+            z-index: 1001;
+        }
+
+        .dropdown-menu li {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            width: 100%;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Explore Cards */
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .explore-card {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 350px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .explore-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .explore-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .explore-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+        }
+
+        .explore-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .explore-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -715,10 +813,17 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Trang chủ</a></li>
+                <li><a href="vu-quang.html">Khám phá Vũ Quang</a></li>
                 <li><a href="#amenities">Tiện ích</a></li>
                 <li><a href="#rooms">Phòng nghỉ</a></li>
-                <li><a href="#gallery">Hình ảnh</a></li>
-                <li><a href="#reviews">Đánh giá</a></li>
+                <li class="nav-dropdown">
+                    <a href="javascript:void(0)">Khám phá Hà Tĩnh ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
+                        <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
+                        <li><a href="#explore">Danh lam</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contact">Liên hệ</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
@@ -933,6 +1038,45 @@
                 <div class="gallery-item">
                     <img src="z7534375967864_cc734309503ea4a102e23e4a2002a46c.jpg" alt="Khách sạn Xanh">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover Ha Tinh Section -->
+    <section class="explore" id="explore">
+        <div class="container">
+            <h2 class="section-title">Khám Phá Hà Tĩnh</h2>
+            <p class="section-subtitle">Vùng đất của tâm hồn, văn hóa và thiên nhiên hùng vĩ</p>
+
+            <div class="explore-grid">
+                <a href="vu-quang.html" class="explore-card">
+                    <img src="vu_quang_hero_1772184228570.png" alt="Vũ Quang">
+                    <div class="explore-overlay">
+                        <h3>Vườn Quốc Gia Vũ Quang</h3>
+                        <p>Di sản ASEAN - Kho tàng đa dạng sinh học</p>
+                    </div>
+                </a>
+                <a href="con-nguoi-ha-tinh.html" class="explore-card">
+                    <img src="ha_tinh_people_1772184245300.png" alt="Con người Hà Tĩnh">
+                    <div class="explore-overlay">
+                        <h3>Con Người Hà Tĩnh</h3>
+                        <p>Đất học nghĩa tình, chân chất mộc mạc</p>
+                    </div>
+                </a>
+                <a href="dac-san-ha-tinh.html" class="explore-card">
+                    <img src="ha_tinh_delicacies_1772184263124.png" alt="Đặc sản Hà Tĩnh">
+                    <div class="explore-overlay">
+                        <h3>Đặc Sản Hà Tĩnh</h3>
+                        <p>Hương vị quê hương - Tinh hoa ẩm thực</p>
+                    </div>
+                </a>
+                <a href="danh-lam-thang-canh.html" class="explore-card">
+                    <img src="ha_tinh_landmarks_1772184282838.png" alt="Danh lam thắng cảnh">
+                    <div class="explore-overlay">
+                        <h3>Danh Lam Thắng Cảnh</h3>
+                        <p>Cảnh sắc hữu tình - Cung đàn Thiên Cầm</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vườn Quốc Gia Vũ Quang - Kho Báu Thiên Nhiên Hà Tĩnh</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d7a4f;
+            --secondary-green: #52b788;
+            --light-green: #95d5b2;
+            --dark-green: #1b4332;
+            --gold: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation - Same as Index */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('vu_quang_hero_1772184228570.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 4rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .grid:nth-child(even) {
+            direction: rtl;
+        }
+
+        .grid:nth-child(even) .text-box {
+            direction: ltr;
+        }
+
+        .image-box {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            aspect-ratio: 4/3;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-box h2 {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .text-box h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .text-box p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 30px;
+            border-left: 8px solid var(--primary-green);
+            margin: 4rem 0;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🏨 Khách Sạn Xanh</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="vu-quang.html">Vũ Quang</a></li>
+                <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
+                <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
+                <li><a href="danh-lam-thang-canh.html">Danh lam</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vườn Quốc Gia Vũ Quang</h1>
+            <p>Hành trình khám phá "Vườn di sản ASEAN" giữa lòng đại ngàn Trường Sơn</p>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <p class="intro-text">
+            "Vũ Quang không chỉ là một khu bảo tồn thiên nhiên, mà còn là linh hồn của vùng đất Hà Tĩnh.
+            Nơi đây, từng nhành cây, ngọn cỏ đều mang hơi thở của đại ngàn hoang sơ, hùng vĩ."
+        </p>
+
+        <div class="grid">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80"
+                    alt="Rừng nguyên sinh">
+            </div>
+            <div class="text-box">
+                <h2>Hệ Sinh Thái Đa Dạng</h2>
+                <p>
+                    Được vinh danh là Vườn di sản ASEAN, Vũ Quang tự hào sở hữu hệ sinh thái động thực vật phong phú bậc
+                    nhất Việt Nam.
+                    Nơi đây là "ngôi nhà" của hàng ngàn loài thực vật bậc cao và nhiều loài động vật quý hiếm nằm trong
+                    Sách Đỏ thế giới.
+                </p>
+                <p>
+                    Đặc biệt, Vũ Quang từng làm chấn động giới khoa học quốc tế khi là nơi đầu tiên phát hiện ra Sao La
+                    – "Kỳ lân châu Á"
+                    và loài Mang lớn. Đây là những báu vật thiên nhiên khẳng định giá trị bảo tồn vô giá của vùng đất
+                    này.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+                    alt="Hồ Ngàn Trươi">
+            </div>
+            <div class="text-box">
+                <h2>Cảnh Quan Sơn Thủy Hữu Tình</h2>
+                <p>
+                    Đến với Vũ Quang, du khách sẽ ngỡ ngàng trước vẻ đẹp của lòng hồ Ngàn Trươi mênh mông như biển hồ
+                    giữa núi rừng.
+                    Mặt nước xanh ngắt in bóng mây trời, xung quanh là những hòn đảo nhỏ nhấp nhô tạo nên một bức tranh
+                    thủy mặc say đắm lòng người.
+                </p>
+                <p>
+                    Những thác nước hùng vĩ như thác Thang Đày, thác Cổng Trời ngày đêm vang vọng khúc ca của đại ngàn,
+                    mang đến cảm giác thanh tịnh và sảng khoái tuyệt đối cho bước chân lữ khách.
+                </p>
+            </div>
+        </div>
+
+        <div class="highlight-card">
+            <h3>Dấu Ấn Lịch Sử Hào Hùng</h3>
+            <p>
+                Không chỉ có thiên nhiên, Vũ Quang còn là vùng đất địa linh nhân kiệt. Nơi đây từng là căn cứ địa vững
+                chắc của
+                cuộc khởi nghĩa Cần Vương do chí sĩ Phan Đình Phùng lãnh đạo. Những vách đá, hang động vẫn còn vương
+                bóng hình
+                của những nghĩa quân kiên cường, viết nên những trang sử vẻ vang cho dân tộc Việt Nam.
+            </p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-home">Quay về Trang chủ</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Khách Sạn Xanh Vũ Quang. Mang thiên nhiên đến gần bạn hơn.</p>
+    </footer>
+</body>
+
+</html>

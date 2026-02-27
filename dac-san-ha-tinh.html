@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặc Sản Hà Tĩnh - Hương Vị Quê Hương</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d7a4f;
+            --secondary-green: #52b788;
+            --light-green: #95d5b2;
+            --dark-green: #1b4332;
+            --gold: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('ha_tinh_delicacies_1772184263124.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 4rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .delicacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .delicacy-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .delicacy-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .image-box {
+            height: 250px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-box {
+            padding: 2rem;
+        }
+
+        .text-box h2 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .text-box p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .highlight-section {
+            background: var(--bg-light);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-content h2 {
+            font-size: 2.2rem;
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background: var(--dark-green);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🏨 Khách Sạn Xanh</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="vu-quang.html">Vũ Quang</a></li>
+                <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
+                <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
+                <li><a href="danh-lam-thang-canh.html">Danh lam</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tinh Hoa Ẩm Thực Hà Tĩnh</h1>
+            <p>Hương vị đậm đà, kết tinh từ nắng gió và lòng người</p>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <p class="intro-text">
+            "Ẩm thực Hà Tĩnh không cầu kỳ, phô trương nhưng để lại dư vị khó quên.
+            Mỗi món ăn là một câu chuyện về vùng đất, là tấm chân tình của người nấu gửi gắm."
+        </p>
+
+        <div class="delicacy-grid">
+            <div class="delicacy-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1582234373447-495999dad250?auto=format&fit=crop&w=600&q=80"
+                        alt="Kẹo Cu Đơ">
+                </div>
+                <div class="text-box">
+                    <h2>Kẹo Cu Đơ</h2>
+                    <p>
+                        Nhắc đến Hà Tĩnh là nhắc đến kẹo Cu Đơ. Vị ngọt của mật mía, vị bùi của lạc rang, cay nồng của
+                        gừng
+                        hòa quyện cùng lớp bánh đa giòn rụm. Thưởng thức Cu Đơ cùng bát nước chè xanh là trải nghiệm đậm
+                        chất Hà Tĩnh.
+                    </p>
+                </div>
+            </div>
+
+            <div class="delicacy-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1589112106030-85ecfd631833?auto=format&fit=crop&w=600&q=80"
+                        alt="Bánh Đa Vừng">
+                </div>
+                <div class="text-box">
+                    <h2>Bánh Đa Vừng</h2>
+                    <p>
+                        Bánh đa vừng Hà Tĩnh nổi tiếng dày, giòn và thơm nức mùi vừng đen.
+                        Được làm từ gạo ngon và gia vị đậm đà, bánh đa là món quà vặt dân dã nhưng luôn có mặt trong mọi
+                        bữa tiệc của người bản xứ.
+                    </p>
+                </div>
+            </div>
+
+            <div class="delicacy-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1546039907-7fa05f66368d?auto=format&fit=crop&w=600&q=80"
+                        alt="Ram Bánh Mướt">
+                </div>
+                <div class="text-box">
+                    <h2>Ram Bánh Mướt</h2>
+                    <p>
+                        Sự kết hợp hoàn hảo giữa cái giòn rụm của ram (chả giò) và sự mềm mịn của bánh mướt (bánh ướt).
+                        Chấm cùng nước mắm chua cay, món ăn này mang đến sự bùng nổ hương vị ngay từ miếng đầu tiên.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-section">
+            <div class="highlight-content">
+                <h2>Hoa Quả Đặc Sản</h2>
+                <p>
+                    Hà Tĩnh còn được thiên nhiên ban tặng những loại trái cây nức tiếng vùng miền.
+                    <b>Bưởi Phúc Trạch</b> ngọt thanh hay <b>Cam Bù Hương Sơn</b> mọng nước, vàng óng là những thức quà
+                    quý giá
+                    thường được dùng để tiến vua ngày xưa và là niềm tự hào của người dân hôm nay.
+                </p>
+            </div>
+            <div style="flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80"
+                    alt="Bưởi Phúc Trạch" style="width: 100%; display: block;">
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-home">Quay về Trang chủ</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Khách Sạn Xanh Vũ Quang - Thưởng thức hương vị Hà Tĩnh.</p>
+    </footer>
+</body>
+
+</html>

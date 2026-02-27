@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Con Người Hà Tĩnh - Đất Học & Nghĩa Tình</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d7a4f;
+            --secondary-green: #52b788;
+            --light-green: #95d5b2;
+            --dark-green: #1b4332;
+            --gold: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('ha_tinh_people_1772184245300.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 4rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .grid:nth-child(even) {
+            direction: rtl;
+        }
+
+        .grid:nth-child(even) .text-box {
+            direction: ltr;
+        }
+
+        .image-box {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-box h2 {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .text-box p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .quote-box {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 4rem 0;
+            border-top: 5px solid var(--gold);
+        }
+
+        .quote-box p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--dark-green);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🏨 Khách Sạn Xanh</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="vu-quang.html">Vũ Quang</a></li>
+                <li><a href="con-nguoi-ha-tinh.html">Con người</a></li>
+                <li><a href="dac-san-ha-tinh.html">Đặc sản</a></li>
+                <li><a href="danh-lam-thang-canh.html">Danh lam</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chân Chất Người Hà Tĩnh</h1>
+            <p>Vẻ đẹp tâm hồn từ vùng đất "Gió Lào cát trắng"</p>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <p class="intro-text">
+            "Hà Tĩnh mình thương, từ thuở nôi ru... Con người nơi đây tôi luyện qua nắng gió,
+            trở nên rắn rỏi nhưng cũng đầy ắp nghĩa tình."
+        </p>
+
+        <div class="grid">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04bd2a3f?auto=format&fit=crop&w=800&q=80"
+                    alt="Con người">
+            </div>
+            <div class="text-box">
+                <h2>Truyền Thống Hiếu Học</h2>
+                <p>
+                    Hà Tĩnh vốn nổi danh là "Đất học". Dù cuộc sống còn nhiều gian khó, nhưng tinh thần vượt khó, ham
+                    học hỏi luôn là ngọn lửa cháy bỏng trong mỗi nếp nhà.
+                    Nơi đây đã sản sinh ra biết bao hiền tài, những bậc danh nhân văn hóa làm rạng danh quê hương xứ sở.
+                </p>
+                <p>
+                    Đối với người Hà Tĩnh, tri thức không chỉ là con đường lập thân mà còn là niềm tự hào của dòng tộc,
+                    là khí chất được nuôi dưỡng qua từng thế hệ.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1544435253-f0ed4aaeff21?auto=format&fit=crop&w=800&q=80"
+                    alt="Văn hóa">
+            </div>
+            <div class="text-box">
+                <h2>Cốt Cách Nghĩa Tình</h2>
+                <p>
+                    Nếu thiên nhiên khắc nghiệt trui rèn ý chí, thì chính tâm hồn nhạy cảm đã tạo nên những làn điệu Dân
+                    ca Ví, Giặm ngọt ngào.
+                    Lời ca không chỉ là giải trí mà còn là lời tự sự về cuộc đời, về tình làng nghĩa xóm và niềm trung
+                    trinh, son sắt.
+                </p>
+                <p>
+                    Người Hà Tĩnh sống chân thành, mộc mạc như củ khoai, củ sắn nhưng sâu nặng tình người.
+                    Khách đến chơi nhà, dù nghèo cũng đãi bát nước chè xanh om ấm nóng, cái tình nồng hậu đủ làm ấm lòng
+                    bất kỳ ai.
+                </p>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            <p>"Muối mặn gừng cay, tình người xứ Nghệ"</p>
+            <span>Dân ca Ví, Giặm - Di sản văn hóa phi vật thể của nhân loại</span>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-home">Quay về Trang chủ</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Khách Sạn Xanh Vũ Quang - Nơi kết nối những tấm lòng.</p>
+    </footer>
+</body>
+
+</html>
