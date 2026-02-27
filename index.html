@@ -15,13 +15,15 @@
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <style>
-        /* Gallary & Hero Extra */
+        /* Homepage-specific styles */
         .hero {
             margin-top: 80px;
             height: 95vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('khachsan.jpg');
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.3)), url('khachsan.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -34,46 +36,45 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1), transparent);
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.08), transparent 60%);
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
-            padding: 1rem;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 16px;
             height: 250px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .gallery-item::after {
-            content: '+';
+            content: '🔍';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(45, 122, 79, 0.4);
+            inset: 0;
+            background: rgba(27, 67, 50, 0.45);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -82,13 +83,32 @@
             opacity: 1;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-green);
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+                min-height: 380px;
+                margin-top: 65px;
+                background-attachment: scroll;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+
+            .gallery-item {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
         }
     </style>
 </head>
@@ -96,523 +116,340 @@
 <body>
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <nav>
-        <nav id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">🏨</div>
-                    <div class="bilingual-header">
-                        <span class="vi">Khách Sạn Xanh</span>
-                        <span class="en">Green Hotel</span>
-                    </div>
-                </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" class="active"><span class="vi">Trang chủ</span><span
-                                class="lang-en">Home</span></a></li>
-                    <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu
-                                Quang</span></a></li>
-                    <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
-                                class="lang-en">People</span></a></li>
-                    <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
-                                class="lang-en">Cuisine</span></a></li>
-                    <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
-                                class="lang-en">Landmarks</span></a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">☰</button>
-            </div>
-        </nav>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🏨</div>
+                <div class="bilingual-header">
+                    <span class="vi">Khách Sạn Xanh</span>
+                    <span class="en">Green Hotel</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active"><span class="vi">Trang chủ</span><span
+                            class="lang-en">Home</span></a></li>
+                <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu
+                            Quang</span></a></li>
+                <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
+                            class="lang-en">People</span></a></li>
+                <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
+                            class="lang-en">Cuisine</span></a></li>
+                <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
+                            class="lang-en">Landmarks</span></a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">☰</button>
+        </div>
     </nav>
 
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Chào mừng tới Khách Sạn Xanh</h1>
-            <p>Trải nghiệm kỳ nghỉ xanh giữa lòng Vũ Quang Nature Reserve</p>
-            <p style="font-size: 1.1rem; opacity: 0.8; margin-top: -1.5rem;">Welcome to Green Hotel - Your eco-luxury
-                retreat</p>
-            <a href="#booking" class="cta-button">Đặt phòng ngay / Book Now</a>
+            <h1>Khách Sạn Xanh <br><span style="font-size: 0.5em; font-weight: 400; opacity: 0.85;">Green
+                    Hotel</span></h1>
+            <p>Vị trí đẹp, view thoáng, dịch vụ tận tâm tại Vũ Quang, Hà Tĩnh</p>
+            <p style="font-size: 1.05rem; opacity: 0.85; margin-top: -1rem; font-family: 'Inter', sans-serif;">Premium
+                views, dedicated service &amp; eco-friendly comfort</p>
+            <a href="tel:0986959919" class="cta-button">📞 Đặt phòng / Book Now: 0986 959 919</a>
         </div>
     </section>
 
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="vi">Tiện Nghi Khách Sạn</span>
+                <span class="en">Hotel Amenities</span>
+            </h2>
+            <p class="section-subtitle">Chúng tôi mang đến cho bạn trải nghiệm nghỉ dưỡng tuyệt vời | Premium
+                retreat experience</p>
 
-    /* Responsive */
-    @media (max-width: 768px) {
-    .mobile-menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-    }
-
-    .nav-links {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    padding: 5rem 2rem 2rem;
-    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.15);
-    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    gap: 0;
-    z-index: 1000;
-    }
-
-    .nav-links.active {
-    left: 0;
-    }
-
-    .nav-links li {
-    border-bottom: 1px solid #eee;
-    }
-
-    .nav-links a {
-    display: flex;
-    align-items: center;
-    padding: 1rem 0.5rem;
-    font-size: 1.1rem;
-    min-height: 48px;
-    }
-
-    .nav-dropdown .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    padding: 0;
-    display: block;
-    background: #f9f9f9;
-    border-radius: 0;
-    }
-
-    .nav-dropdown .dropdown-menu li {
-    padding: 0;
-    }
-
-    .nav-dropdown .dropdown-menu li a {
-    padding-left: 2rem;
-    font-size: 1rem;
-    }
-
-    .hero {
-    height: 55vh;
-    min-height: 350px;
-    margin-top: 60px;
-    }
-
-    .hero h1 {
-    font-size: 2rem;
-    }
-
-    .hero p {
-    font-size: 1rem;
-    }
-
-    .section-title {
-    font-size: 1.8rem;
-    }
-
-    .rooms-grid {
-    grid-template-columns: 1fr;
-    }
-
-    .form-row {
-    grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-    grid-template-columns: 1fr;
-    }
-
-    .booking-form {
-    padding: 2rem 1.5rem;
-    }
-
-    .explore-grid {
-    grid-template-columns: 1fr;
-    }
-
-    .explore-card {
-    height: 280px;
-    }
-
-    .cta-button {
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    }
-
-    .book-btn {
-    min-height: 44px;
-    min-width: 44px;
-    }
-
-    .submit-btn {
-    min-height: 48px;
-    }
-
-    .back-to-top {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 45px;
-    height: 45px;
-    }
-    }
-
-    @media (max-width: 480px) {
-    .hero h1 {
-    font-size: 1.7rem;
-    }
-
-    .nav-container {
-    padding: 0.8rem 1rem;
-    }
-
-    .logo {
-    font-size: 1.2rem;
-    }
-
-    section {
-    padding: 3rem 1.2rem;
-    }
-    }
-
-    /* Scroll animations */
-    .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-    }
-
-    .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-    }
-    </style>
-    </head>
-
-    <body>
-        <div class="mobile-overlay" id="mobileOverlay"></div>
-
-        <nav id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">🏨</div>
+            <div class="amenities-grid fade-in">
+                <div class="amenity-card premium-card">
+                    <div class="amenity-icon">📶</div>
                     <div class="bilingual-header">
-                        <span class="vi">Khách Sạn Xanh</span>
-                        <span class="en">Green Hotel</span>
+                        <span class="vi">Wifi Miễn Phí</span>
+                        <span class="en">Free High-Speed Wi-Fi</span>
                     </div>
-                </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html"><span class="vi">Trang chủ</span><span class="lang-en">Home</span></a></li>
-                    <li><a href="vu-quang.html"><span class="vi">Vũ Quang</span><span class="lang-en">Vu
-                                Quang</span></a></li>
-                    <li><a href="con-nguoi-ha-tinh.html"><span class="vi">Con người</span><span
-                                class="lang-en">People</span></a></li>
-                    <li><a href="dac-san-ha-tinh.html"><span class="vi">Đặc sản</span><span
-                                class="lang-en">Cuisine</span></a></li>
-                    <li><a href="danh-lam-thang-canh.html"><span class="vi">Danh lam</span><span
-                                class="lang-en">Landmarks</span></a></li>
+                </div>
+                <div class="amenity-card premium-card">
+                    <div class="amenity-icon">🅿️</div>
+                    <div class="bilingual-header">
+                        <span class="vi">Bãi Đậu Xe</span>
+                        <span class="en">Secure Parking</span>
+                    </div>
+                </div>
+                <div class="amenity-card premium-card">
+                    <div class="amenity-icon">🍳</div>
+                    <div class="bilingual-header">
+                        <span class="vi">Bếp Chung</span>
+                        <span class="en">Shared Kitchen</span>
+                    </div>
+                </div>
+                <div class="amenity-card premium-card">
+                    <div class="amenity-icon">❄️</div>
+                    <div class="bilingual-header">
+                        <span class="vi">Điều Hòa</span>
+                        <span class="en">Air Conditioning</span>
+                    </div>
+                </div>
+                <div class="amenity-card premium-card">
+                    <div class="amenity-icon">🧹</div>
+                    <div class="bilingual-header">
+                        <span class="vi">Vệ Sinh Hàng Ngày</span>
+                        <span class="en">Daily Housekeeping</span>
+                    </div>
+                </div>
+                <div class="amenity-card premium-card">
+                    <div class="amenity-icon">🔒</div>
+                    <div class="bilingual-header">
+                        <span class="vi">An Ninh 24/7</span>
+                        <span class="en">24/7 Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms" id="rooms">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="vi">Phòng Nghỉ</span>
+                <span class="en">Our Rooms</span>
+            </h2>
+            <p class="section-subtitle">Lựa chọn phòng phù hợp với nhu cầu của bạn | Find your perfect stay</p>
+
+            <div class="rooms-grid fade-in">
+                <!-- Room 1 -->
+                <div class="room-card premium-card">
+                    <div class="room-image">
+                        <img src="z7534371531325_6191162c5f15be2287809a4801213a10.jpg" alt="Phòng Double 1m4"
+                            loading="lazy">
+                    </div>
+                    <div class="room-content">
+                        <h3><span class="vi">Phòng Đôi (Giường 1m4)</span><span class="en">Double Room (1.4m
+                                Bed)</span></h3>
+                        <p class="vi">Phòng tiêu chuẩn, view thành phố</p>
+                        <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Standard room with city
+                            view</p>
+                        <ul class="room-features">
+                            <li><span class="vi">1 Giường 1m4</span> | <span class="en">1.4m Queen Bed</span></li>
+                            <li><span class="vi">Điều hòa, TV</span> | <span class="en">AC &amp; Smart TV</span></li>
+                            <li><span class="vi">Phòng tắm riêng</span> | <span class="en">Private Bathroom</span>
+                            </li>
+                        </ul>
+                        <div class="room-price">
+                            <span class="price">250.000đ</span>
+                            <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
+                                    class="en">Book</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="room-card premium-card">
+                    <div class="room-image">
+                        <img src="z7534371544773_d993cd2f0fe0be9750b84d19bc40ed68.jpg" alt="Phòng Double 1m6"
+                            loading="lazy">
+                    </div>
+                    <div class="room-content">
+                        <h3><span class="vi">Superior Đôi (Giường 1m6)</span><span class="en">Superior Double (1.6m
+                                Bed)</span></h3>
+                        <p class="vi">Phòng rộng rãi, view sông và núi</p>
+                        <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Spacious room with river
+                            &amp; mountain views</p>
+                        <ul class="room-features">
+                            <li><span class="vi">1 Giường 1m6</span> | <span class="en">1.6m King Bed</span></li>
+                            <li><span class="vi">Tủ lạnh, Điều hòa</span> | <span class="en">Fridge &amp; AC</span></li>
+                            <li><span class="vi">Bàn làm việc</span> | <span class="en">Work Desk &amp; Sofa</span></li>
+                        </ul>
+                        <div class="room-price">
+                            <span class="price">300.000đ</span>
+                            <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
+                                    class="en">Book</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="room-card premium-card">
+                    <div class="room-image">
+                        <img src="z7534373305491_7a90bebb87dace46466f784516d9f46f.jpg" alt="Phòng Twin" loading="lazy">
+                    </div>
+                    <div class="room-content">
+                        <h3><span class="vi">Phòng Twin (2 Giường 1m2)</span><span class="en">Twin Room (2x 1.2m
+                                Beds)</span></h3>
+                        <p class="vi">View sân cỏ, rừng, núi</p>
+                        <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Nature view - Perfect for
+                            friends or family</p>
+                        <ul class="room-features">
+                            <li><span class="vi">2 Giường 1m2</span> | <span class="en">Twin 1.2m Beds</span></li>
+                            <li><span class="vi">Không gian thoáng</span> | <span class="en">Aerated Space</span>
+                            </li>
+                            <li><span class="vi">Đầy đủ tiện nghi</span> | <span class="en">Full Amenities</span>
+                            </li>
+                        </ul>
+                        <div class="room-price">
+                            <span class="price">350.000đ</span>
+                            <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
+                                    class="en">Book</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="vi">Không Gian Khách Sạn</span>
+                <span class="en">Gallery</span>
+            </h2>
+            <p class="section-subtitle">Khám phá không gian xanh mát, thơ mộng | Explore our beautiful spaces</p>
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item"><img src="z7534371550325_0cbfe1fc7945485933877aadd4b03360.jpg"
+                        alt="Không gian khách sạn" loading="lazy"></div>
+                <div class="gallery-item"><img src="z7534371554459_be5b285b51cfc8e78c42c59f97de4692.jpg"
+                        alt="Không gian khách sạn" loading="lazy"></div>
+                <div class="gallery-item"><img src="z7534373297708_280ebe5e6696906b136508c2661972de.jpg"
+                        alt="Không gian khách sạn" loading="lazy"></div>
+                <div class="gallery-item"><img src="z7534373305378_df61e714155bf547b0ff4b82202cf55c.jpg"
+                        alt="Không gian khách sạn" loading="lazy"></div>
+                <div class="gallery-item"><img src="z7534373421714_131e48c6e434536e1e3f9bdbff09051b.jpg"
+                        alt="Không gian khách sạn" loading="lazy"></div>
+                <div class="gallery-item"><img src="z7534374252032_30e4281ef960468a0ddae2909e1eb5e1.jpg"
+                        alt="Không gian khách sạn" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="vi">Liên Hệ</span>
+                <span class="en">Contact Us</span>
+            </h2>
+            <div class="contact-grid fade-in">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Điện thoại / Phone</h3>
+                            <p><a href="tel:0986959919">0986 959 919</a></p>
+                            <p>Hotline 24/7 (Hỗ trợ VI/EN)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Địa chỉ / Address</h3>
+                            <p><span class="vi">Khối 4, TT. Vũ Quang, Vũ Quang, Hà Tĩnh</span></p>
+                            <p class="en">Block 4, Vu Quang Town, Ha Tinh Province</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>contact@khachsanxanh.vn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d105.4578125!3d18.2820833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE2JzU1LjUiTiAxMDXCsDI3JzI4LjEiRQ!5e0!3m2!1svi!2s!4v1234567890"
+                        allowfullscreen="" loading="lazy" title="Bản đồ Khách Sạn Xanh"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col footer-contact">
+                <h3><span class="vi">Khách Sạn Xanh</span><span class="en">Green Hotel</span></h3>
+                <p>📍 <span class="vi">Khối 4, TT. Vũ Quang, Vũ Quang, Hà Tĩnh</span>
+                    <span class="en">Block 4, Vu Quang Town, Ha Tinh</span>
+                </p>
+                <p>📞 <a href="tel:0986959919">0986 959 919</a></p>
+                <p>✉️ contact@khachsanxanh.vn</p>
+            </div>
+            <div class="footer-col">
+                <h3><span class="vi">Khám phá</span><span class="en">Explore</span></h3>
+                <ul class="footer-links">
+                    <li><a href="vu-quang.html">Vũ Quang</a></li>
+                    <li><a href="con-nguoi-ha-tinh.html">Con người Hà Tĩnh</a></li>
+                    <li><a href="dac-san-ha-tinh.html">Đặc sản vùng miền</a></li>
+                    <li><a href="danh-lam-thang-canh.html">Danh lam thắng cảnh</a></li>
                 </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Khách Sạn Xanh <br><span style="font-size: 0.5em; font-weight: 400; opacity: 0.8;">Green
-                        Hotel</span></h1>
-                <p>Vị trí đẹp, view thoáng, dịch vụ tận tâm tại Vũ Quang, Hà Tĩnh</p>
-                <p style="font-size: 1.1rem; opacity: 0.9; margin-top: -1rem; font-family: 'Inter', sans-serif;">Premium
-                    views, dedicated service & eco-friendly comfort</p>
-                <a href="tel:0986959919" class="cta-button">📞 Đặt phòng / Book Now: 0986 959 919</a>
+            <div class="footer-col">
+                <h3><span class="vi">Dịch vụ</span><span class="en">Services</span></h3>
+                <ul class="footer-links">
+                    <li><a href="#rooms">Phòng nghỉ / Rooms</a></li>
+                    <li><a href="#amenities">Tiện nghi / Amenities</a></li>
+                    <li><a href="#gallery">Hình ảnh / Gallery</a></li>
+                </ul>
             </div>
-        </section>
-
-        <!-- Amenities Section -->
-        <section class="amenities" id="amenities">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="vi">Tiện Nghi Khách Sạn</span>
-                    <span class="en">Hotel Amenities</span>
-                </h2>
-                <p class="section-subtitle">Chúng tôi mang đến cho bạn trải nghiệm nghỉ dưỡng tuyệt vời | Premium
-                    retreat experience</p>
-
-                <div class="amenities-grid fade-in">
-                    <div class="amenity-card premium-card">
-                        <div class="amenity-icon">📶</div>
-                        <div class="bilingual-header">
-                            <span class="vi">Wifi Miễn Phí</span>
-                            <span class="en">Free High-Speed Wi-Fi</span>
-                        </div>
-                    </div>
-                    <div class="amenity-card premium-card">
-                        <div class="amenity-icon">🅿️</div>
-                        <div class="bilingual-header">
-                            <span class="vi">Bãi Đậu Xe</span>
-                            <span class="en">Secure Parking</span>
-                        </div>
-                    </div>
-                    <div class="amenity-card premium-card">
-                        <div class="amenity-icon">🍳</div>
-                        <div class="bilingual-header">
-                            <span class="vi">Bếp Chung</span>
-                            <span class="en">Shared Kitchen</span>
-                        </div>
-                    </div>
-                    <div class="amenity-card premium-card">
-                        <div class="amenity-icon">❄️</div>
-                        <div class="bilingual-header">
-                            <span class="vi">Điều Hòa</span>
-                            <span class="en">Air Conditioning</span>
-                        </div>
-                    </div>
-                    <div class="amenity-card premium-card">
-                        <div class="amenity-icon">🧹</div>
-                        <div class="bilingual-header">
-                            <span class="vi">Vệ Sinh Hàng Ngày</span>
-                            <span class="en">Daily Housekeeping</span>
-                        </div>
-                    </div>
-                    <div class="amenity-card premium-card">
-                        <div class="amenity-icon">🔒</div>
-                        <div class="bilingual-header">
-                            <span class="vi">An Ninh 24/7</span>
-                            <span class="en">24/7 Security</span>
-                        </div>
-                    </div>
+            <div class="footer-col">
+                <h3><span class="vi">Kết nối</span><span class="en">Connect</span></h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook" class="social-link">
+                        <span>f</span>Facebook
+                    </a>
+                    <a href="#" aria-label="Zalo" class="social-link">
+                        <span>Z</span>Zalo
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Khách Sạn Xanh (Green Hotel). All Rights Reserved. | <span class="vi">Kết nối trái tim Hà
+                    Tĩnh</span><span class="en">Connecting Hearts across Ha Tinh</span></p>
+        </div>
+    </footer>
 
-        <!-- Rooms Section -->
-        <section class="rooms" id="rooms">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="vi">Phòng Nghỉ</span>
-                    <span class="en">Our Rooms</span>
-                </h2>
-                <p class="section-subtitle">Lựa chọn phòng phù hợp với nhu cầu của bạn | Find your perfect stay</p>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-                <div class="rooms-grid fade-in">
-                    <!-- Room 1 -->
-                    <div class="room-card premium-card">
-                        <div class="room-image">
-                            <img src="z7534371531325_6191162c5f15be2287809a4801213a10.jpg" alt="Phòng Double 1m4">
-                        </div>
-                        <div class="room-content">
-                            <h3><span class="vi">Phòng Đôi (Giường 1m4)</span><span class="en">Double Room (1.4m
-                                    Bed)</span></h3>
-                            <p class="vi">Phòng tiêu chuẩn, view thành phố</p>
-                            <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Standard room with city
-                                view</p>
-                            <ul class="room-features">
-                                <li><span class="vi">1 Giường 1m4</span> | <span class="en">1.4m Queen Bed</span></li>
-                                <li><span class="vi">Điều hòa, TV</span> | <span class="en">AC & Smart TV</span></li>
-                                <li><span class="vi">Phòng tắm riêng</span> | <span class="en">Private Bathroom</span>
-                                </li>
-                            </ul>
-                            <div class="room-price">
-                                <span class="price">250.000đ</span>
-                                <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
-                                        class="en">Book</span></a>
-                            </div>
-                        </div>
-                    </div>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+        });
 
-                    <!-- Room 2 -->
-                    <div class="room-card premium-card">
-                        <div class="room-image">
-                            <img src="z7534371544773_d993cd2f0fe0be9750b84d19bc40ed68.jpg" alt="Phòng Double 1m6">
-                        </div>
-                        <div class="room-content">
-                            <h3><span class="vi">Superior Đôi (Giường 1m6)</span><span class="en">Superior Double (1.6m
-                                    Bed)</span></h3>
-                            <p class="vi">Phòng rộng rãi, view sông và núi</p>
-                            <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Spacious room with river
-                                & mountain views</p>
-                            <ul class="room-features">
-                                <li><span class="vi">1 Giường 1m6</span> | <span class="en">1.6m King Bed</span></li>
-                                <li><span class="vi">Tủ lạnh, Điều hòa</span> | <span class="en">Fridge & AC</span></li>
-                                <li><span class="vi">Bàn làm việc</span> | <span class="en">Work Desk & Sofa</span></li>
-                            </ul>
-                            <div class="room-price">
-                                <span class="price">300.000đ</span>
-                                <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
-                                        class="en">Book</span></a>
-                            </div>
-                        </div>
-                    </div>
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOverlay = document.getElementById('mobileOverlay');
 
-                    <!-- Room 3 -->
-                    <div class="room-card premium-card">
-                        <div class="room-image">
-                            <img src="z7534373305491_7a90bebb87dace46466f784516d9f46f.jpg" alt="Phòng Twin">
-                        </div>
-                        <div class="room-content">
-                            <h3><span class="vi">Phòng Twin (2 Giường 1m2)</span><span class="en">Twin Room (2x 1.2m
-                                    Beds)</span></h3>
-                            <p class="vi">View sân cỏ, rừng, núi</p>
-                            <p class="en" style="font-size: 0.9rem; color: var(--text-light);">Nature view - Perfect for
-                                friends or family</p>
-                            <ul class="room-features">
-                                <li><span class="vi">2 Giường 1m2</span> | <span class="en">Twin 1.2m Beds</span></li>
-                                <li><span class="vi">Không gian thoáng</span> | <span class="en">Aerated Space</span>
-                                </li>
-                                <li><span class="vi">Đầy đủ tiện nghi</span> | <span class="en">Full Amenities</span>
-                                </li>
-                            </ul>
-                            <div class="room-price">
-                                <span class="price">350.000đ</span>
-                                <a href="tel:0986959919" class="book-btn"><span class="vi">Đặt ngay</span><span
-                                        class="en">Book</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
 
-        <!-- Gallery Section -->
-        <section class="gallery" id="gallery">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="vi">Không Gian Khách Sạn</span>
-                    <span class="en">Gallery</span>
-                </h2>
-                <div class="gallery-grid fade-in">
-                    <div class="gallery-item"><img src="z7534371550325_0cbfe1fc7945485933877aadd4b03360.jpg"
-                            alt="Hotel View"></div>
-                    <div class="gallery-item"><img src="z7534371554459_be5b285b51cfc8e78c42c59f97de4692.jpg"
-                            alt="Hotel View"></div>
-                    <div class="gallery-item"><img src="z7534373297708_280ebe5e6696906b136508c2661972de.jpg"
-                            alt="Hotel View"></div>
-                    <div class="gallery-item"><img src="z7534373305378_df61e714155bf547b0ff4b82202cf55c.jpg"
-                            alt="Hotel View"></div>
-                    <div class="gallery-item"><img src="z7534373421714_131e48c6e434536e1e3f9bdbff09051b.jpg"
-                            alt="Hotel View"></div>
-                    <div class="gallery-item"><img src="z7534374252032_30e4281ef960468a0ddae2909e1eb5e1.jpg"
-                            alt="Hotel View"></div>
-                </div>
-            </div>
-        </section>
+        mobileOverlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            mobileMenuBtn.textContent = '☰';
+        });
 
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="vi">Liên Hệ</span>
-                    <span class="en">Contact Us</span>
-                </h2>
-                <div class="contact-grid fade-in">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-details">
-                                <h3>Phone</h3>
-                                <p><a href="tel:0986959919">0986 959 919</a></p>
-                                <p>Hotline 24/7 (Support in VI/EN)</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-details">
-                                <h3>Address</h3>
-                                <p>Khoi 4, TT. Vu Quang</p>
-                                <p>Vu Quang District, Ha Tinh Province</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d105.4578125!3d18.2820833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE2JzU1LjUiTiAxMDXCsDI3JzI4LjEiRQ!5e0!3m2!1svi!2s!4v1234567890"
-                            allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container footer-grid">
-                <div class="footer-col footer-contact">
-                    <h3><span class="vi">Khách Sạn Xanh</span><span class="en">Green Hotel</span></h3>
-                    <p>📍 <span class="vi">Khối 4, TT. Vũ Quang, Vũ Quang, Hà Tĩnh</span>
-                        <span class="en">Block 4, Vu Quang Town, Ha Tinh</span>
-                    </p>
-                    <p>📞 <a href="tel:0986959919">0986 959 919</a></p>
-                    <p>✉️ <span class="en">Email: contact@khachsanxanh.vn</span></p>
-                </div>
-                <div class="footer-col">
-                    <h3><span class="vi">Khám phá</span><span class="en">Explore</span></h3>
-                    <ul class="footer-links">
-                        <li><a href="vu-quang.html">Vũ Quang</a></li>
-                        <li><a href="con-nguoi-ha-tinh.html">Con người Hà Tĩnh</a></li>
-                        <li><a href="dac-san-ha-tinh.html">Đặc sản vùng miền</a></li>
-                        <li><a href="danh-lam-thang-canh.html">Danh lam thắng cảnh</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3><span class="vi">Dịch vụ</span><span class="en">Services</span></h3>
-                    <ul class="footer-links">
-                        <li><a href="#rooms">Phòng nghỉ</a></li>
-                        <li><a href="#amenities">Tiện nghi</a></li>
-                        <li><a href="#gallery">Hình ảnh</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3><span class="vi">Kết nối</span><span class="en">Connect</span></h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook">FB</a>
-                        <a href="#" aria-label="Zalo">ZL</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Khách Sạn Xanh (Green Hotel). All Rights Reserved. | <span class="vi">Kết nối trái tim Hà
-                        Tĩnh</span><span class="en">Connecting Hearts across Ha Tinh</span></p>
-            </div>
-        </footer>
-
-        <button class="back-to-top" id="backToTop">↑</button>
-
-        <script>
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                const navbar = document.getElementById('navbar');
-                navbar.classList.toggle('scrolled', window.scrollY > 50);
-                document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+        // Scroll Reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
+        }, { threshold: 0.1 });
 
-            // Mobile menu
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                mobileOverlay.classList.toggle('active');
-            });
-
-            mobileOverlay.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-            });
-
-            // Scroll Reveal
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
-            document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-        </script>
-    </body>
+        document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
 
 </html>
